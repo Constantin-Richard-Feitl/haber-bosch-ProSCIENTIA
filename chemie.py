@@ -2,17 +2,15 @@
 """
 Das Rechenmodell hinter dem Reaktor-Kapitel.
 
-Zwei Fragen, die im Haber-Bosch-Verfahren gegeneinander arbeiten:
+Zwei Fragen arbeiten im Haber-Bosch-Verfahren gegeneinander:
 
   1. Wie viel Ammoniak wäre am Ende drin, wenn man ewig wartet?
      -> Gleichgewicht, hängt an Temperatur und Druck.
   2. Wie lange dauert dieses "ewig"?
      -> Geschwindigkeit, hängt an Temperatur und Katalysator.
 
-Kalte Bedingungen gewinnen Frage 1 und verlieren Frage 2. Genau dieser
-Konflikt ist der Grund, warum die Anlage bei 450 °C und 200 bar läuft
-und nicht bei Zimmertemperatur. Das Kapitel lässt die Teilnehmenden
-diesen Konflikt selbst finden.
+Kalt gewinnt Frage 1 und verliert Frage 2. Genau dieser Konflikt ist der
+Grund, warum echte Anlagen bei rund 450 °C und 200 bar laufen.
 """
 
 import math
@@ -24,20 +22,18 @@ DELTA_H_0 = -91800.0     # J/mol Formelumsatz
 DELTA_S_0 = -198.1       # J/(mol*K)
 DELTA_CP = -45.3         # J/(mol*K), grobe Temperaturkorrektur
 
-# Empirischer Realgas-Zuschlag. Ohne ihn liegt das ideale Modell bei
-# hohen Drücken systematisch etwa 15 % zu niedrig. Der Wert 0.00199
-# wurde gegen die klassische Gleichgewichtstabelle von Larson & Dodge
-# (1923/24) angepasst und trifft sie über den ganzen Bereich von
-# 10 bis 600 bar und 200 bis 600 °C auf etwa einen Prozentpunkt genau.
+# Empirischer Realgas-Zuschlag. Ohne ihn liegt das ideale Gasmodell bei
+# hohen Drücken systematisch zu niedrig. Angepasst an die klassische
+# Gleichgewichtstabelle von Larson & Dodge (1923/24).
 FUGAZITAET_A = 0.00199
 
-# Der reale Betriebspunkt heutiger Anlagen
+# Betriebspunkt heutiger Anlagen
 BETRIEB_T = 450.0     # °C
 BETRIEB_P = 200.0     # bar
 
 # Aktivierungsbarrieren in kJ/mol
 BARRIERE_OHNE = 945.0     # blanke Gasphase: die Dreifachbindung selbst
-BARRIERE_EISEN = 100.0    # Eisenkatalysator, gemessene Größenordnung
+BARRIERE_EISEN = 100.0    # Eisenkatalysator, runder Mittelwert
 
 
 def gleichgewichtskonstante(T_celsius):
@@ -52,7 +48,7 @@ def gleichgewichtskonstante(T_celsius):
 def nh3_ausbeute(T_celsius, P_bar):
     """Ammoniakgehalt im Gleichgewicht in Molprozent.
 
-    Ausgangsgemisch stöchiometrisch, also ein Teil N2 auf drei Teile H2.
+    Ausgangsgemisch stöchiometrisch: ein Teil N2 auf drei Teile H2.
     """
     K = gleichgewichtskonstante(T_celsius) * math.exp(FUGAZITAET_A * P_bar)
     ziel = K * P_bar ** 2
@@ -77,11 +73,10 @@ def nh3_ausbeute(T_celsius, P_bar):
 
 def relative_geschwindigkeit(T_celsius, Ea_kJ=BARRIERE_EISEN,
                              bezug_celsius=BETRIEB_T):
-    """Reaktionsgeschwindigkeit relativ zum Betriebspunkt (dort = 1).
+    """Geschwindigkeit relativ zum Betriebspunkt (dort = 1).
 
-    Reine Arrhenius-Abschätzung. Sie sagt nichts über absolute
-    Durchsätze, aber sie zeigt richtig, wie brutal die Temperatur
-    auf die Geschwindigkeit durchschlägt.
+    Reine Arrhenius-Abschätzung: sie sagt nichts über absolute Durchsätze,
+    zeigt aber richtig, wie stark die Temperatur durchschlägt.
     """
     T = T_celsius + 273.15
     T0 = bezug_celsius + 273.15
@@ -90,55 +85,30 @@ def relative_geschwindigkeit(T_celsius, Ea_kJ=BARRIERE_EISEN,
     return math.exp(exponent)
 
 
-_HOCH = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
-
-
-def _lesbar(zahl):
-    """Große Zahl mit Punkt als Tausendertrennung, wie im Deutschen."""
-    return f"{zahl:,.0f}".replace(",", ".")
-
-
 def _komma(zahl, stellen=1):
-    """Deutsche Schreibweise mit Komma als Dezimaltrenner."""
     return f"{zahl:.{stellen}f}".replace(".", ",")
-
-
-def _potenz(zahl):
-    """Sehr große Zahl als lesbare Zehnerpotenz, z.B. '2 · 10¹⁰'."""
-    e = int(math.floor(math.log10(zahl)))
-    m = zahl / 10 ** e
-    return f"{m:.0f} · 10{str(e).translate(_HOCH)}"
 
 
 def reaktor_check(T_celsius, P_bar):
     """Was in einer echten Anlage bei diesen Bedingungen schiefginge.
 
-    Gibt eine Liste (art, text) zurück; art ist 'fehler', 'warnung'
-    oder 'ok'.
+    Liste von (art, text); art ist 'fehler', 'warnung' oder 'ok'.
     """
     meldungen = []
 
     if T_celsius < 350:
         faktor = 1.0 / max(relative_geschwindigkeit(T_celsius), 1e-300)
-        if faktor > 1e6:
-            meldungen.append((
-                "fehler",
-                f"**Zu kalt.** Die Ausbeute wäre traumhaft, nur arbeitet der "
-                f"Katalysator rund {_potenz(faktor)}-mal langsamer als im "
-                f"Betriebspunkt. Auf dein Ammoniak würdest du länger warten, "
-                f"als es die Menschheit gibt."))
-        else:
-            meldungen.append((
-                "warnung",
-                f"**Kalt.** Die Ausbeute stimmt. Die Anlage ist dafür rund "
-                f"{_lesbar(faktor)}-mal langsamer als üblich – rechne in "
-                f"Monaten statt in Minuten."))
+        meldungen.append((
+            "fehler",
+            f"**Zu kalt.** Die Ausbeute wäre traumhaft, nur arbeitet der "
+            f"Katalysator rund {faktor:.0f}-mal langsamer als im "
+            f"Betriebspunkt. Rechne in Monaten statt in Minuten."))
     elif T_celsius > 550:
         meldungen.append((
             "fehler",
             "**Zu heiß.** Schnell ist die Reaktion hier, nur bleibt kaum "
-            "Ammoniak übrig – und der Eisenkatalysator versintert, seine "
-            "Oberfläche verklumpt und er verliert dauerhaft an Wirkung."))
+            "Ammoniak übrig – und der Eisenkatalysator versintert: seine "
+            "Oberfläche verklumpt, er verliert dauerhaft an Wirkung."))
     elif T_celsius > 500:
         meldungen.append((
             "warnung",
@@ -150,12 +120,12 @@ def reaktor_check(T_celsius, P_bar):
             "fehler",
             "**Zu viel Druck.** Für die Ausbeute wunderbar. Nur muss ein "
             "Stahlrohr das aushalten, und heißer Wasserstoff greift Stahl "
-            "von innen an. Genau daran ist Bosch fast gescheitert."))
+            "von innen an. Genau daran wäre Bosch fast gescheitert."))
     elif P_bar > 250:
         meldungen.append((
             "warnung",
-            "**Sehr hoher Druck.** Technisch machbar, aber teuer: dickere "
-            "Wände, mehr Kompressorarbeit, größeres Risiko."))
+            "**Sehr hoher Druck.** Machbar, aber teuer: dickere Wände, "
+            "mehr Kompressorarbeit, größeres Risiko."))
     elif P_bar < 20:
         meldungen.append((
             "warnung",
@@ -171,17 +141,12 @@ def reaktor_check(T_celsius, P_bar):
 
 
 # Die drei Bedingungen, die eine Anlage gleichzeitig erfüllen muss.
-# Das Fenster, das dabei herauskommt, ist ungefähr das, in dem echte
-# Anlagen tatsächlich stehen: rund 400 bis 550 °C und 100 bis 350 bar.
 MIN_AUSBEUTE = 15.0      # Molprozent NH3 im Gleichgewicht
 MIN_TEMPO = 0.2          # relativ zum Betriebspunkt
 
 
 def bewertung(T_celsius, P_bar):
-    """Prüft die drei Bedingungen einer funktionierenden Anlage.
-
-    Gibt (geschafft, [(name, erfuellt, text), ...]) zurück.
-    """
+    """Prüft die drei Bedingungen. Gibt (geschafft, [(name, ok, text)])."""
     a = nh3_ausbeute(T_celsius, P_bar)
     v = relative_geschwindigkeit(T_celsius)
     hart = any(art == "fehler" for art, _ in reaktor_check(T_celsius, P_bar))
