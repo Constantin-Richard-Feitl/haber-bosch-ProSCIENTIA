@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Block 2 – Die Quantenwelt.
+Block 2: Die Quantenwelt.
 
 Roter Faden:
   K1  Ein Problem, das die klassische Physik nicht lösen konnte.
   K2  Das einfachste Modell überhaupt: ein Teilchen in einem Kasten.
-  K3  Aus dem Modell folgt eine Energieleiter – und die Antwort auf K1.
+  K3  Aus dem Modell folgt eine Energieleiter und die Antwort auf K1.
   K4  Aus einem Sprung auf der Leiter wird Licht, das man messen kann.
-  K5  Dieselbe Gleichung rechnet echte Moleküle. Live, in dieser App.
+  K5  Dieselbe Gleichung rechnet echte Moleküle, live in dieser App.
 """
 
 import numpy as np
@@ -36,7 +36,7 @@ KAPITEL = [
 N_KAP = len(KAPITEL)
 
 # Ammoniak, Geometrie aus dem Experiment (Bindungslänge 1,012 Å,
-# Winkel 106,7°), in Ångström.
+# Winkel 106,7 Grad), in Ångström.
 NH3_GEOMETRIE = (
     ("N", (0.000000, 0.000000, 0.116489)),
     ("H", (0.000000, 0.939731, -0.271808)),
@@ -45,7 +45,7 @@ NH3_GEOMETRIE = (
 )
 
 # Gemessene Vergleichswerte für Kapitel 5.
-# D_e ist die Tiefe des Energietals; der geläufige Tabellenwert liegt
+# D_e ist die Tiefe des Energietals. Der geläufige Tabellenwert liegt
 # darunter, weil ein Molekül nie ganz am Boden des Tals sitzt.
 R_H2, DE_H2 = 0.741, 458.0        # Å, kJ/mol
 R_N2, DE_N2 = 1.098, 956.0        # Å, kJ/mol
@@ -65,7 +65,7 @@ def psi(n, L, x):
 
 
 def wellenlaenge_zu_farbe(wl_nm):
-    """Grobe Umrechnung sichtbare Wellenlänge -> RGB. Nur zur Anschauung."""
+    """Grobe Umrechnung sichtbare Wellenlänge in RGB. Nur zur Anschauung."""
     wl = wl_nm
     if wl < 380 or wl > 750:
         return "#444444"
@@ -116,7 +116,7 @@ def plot_zustand(n, L_nm, modus="welle"):
 # ==================================================================
 @st.cache_data(show_spinner=False)
 def qm_energie(atome, spin=0):
-    """Gesamtenergie eines Moleküls per Hartree-Fock (STO-3G), in Hartree."""
+    """Gesamtenergie eines Moleküls, in Hartree."""
     return hf_pure.energie(list(atome), spin=spin)
 
 
@@ -133,28 +133,27 @@ def _k1():
     st.markdown(
         """
 Um 1900 war die Physik ziemlich zufrieden mit sich. Man konnte Planeten
-berechnen, Dampfmaschinen bauen, Brücken auslegen. Die Welt schien im Prinzip
-verstanden.
+berechnen, Dampfmaschinen bauen und Brücken auslegen. Die Welt schien im
+Prinzip verstanden.
 
 Dann kamen Experimente, die **nicht passten**. Und zwar nicht ein bisschen
 daneben, sondern grundsätzlich.
 
-Das bekannteste Problem: Ein Atom besteht aus einem Kern und Elektronen, die
-um ihn herum sind. Nach der klassischen Physik müsste ein kreisendes Elektron
-ständig Energie abstrahlen, langsamer werden und **innerhalb von
+Das bekannteste Problem: Ein Atom besteht aus einem Kern und aus Elektronen,
+die um ihn herum sind. Nach der klassischen Physik müsste ein kreisendes
+Elektron ständig Energie abstrahlen, langsamer werden und **innerhalb von
 Sekundenbruchteilen in den Kern stürzen**.
 
-Tut es aber nicht. Du bist der Beweis: Du bestehst aus Atomen, und die sind
+Tut es aber nicht. Du bist der Beweis: Du bestehst aus Atomen und die sind
 seit Milliarden Jahren stabil.
 """
     )
     merksatz("Die klassische Physik konnte nicht erklären, warum es dich gibt.")
     st.markdown(
         """
-Die Antwort darauf heißt Quantenmechanik. Erwin Schrödinger hat sie 1926 in
-Wien und Zürich in eine einzige Gleichung gebracht. Sie gilt als
-unverständlich – ihr Kern ist es nicht, und den bauen wir in den nächsten vier
-Kapiteln auf.
+Die Antwort darauf heißt Quantenmechanik. Erwin Schrödinger brachte sie 1926
+in eine einzige Gleichung. Sie gilt als unverständlich. Ihr Kern ist es nicht.
+Genau den bauen wir in den nächsten vier Kapiteln auf.
 
 Unser Werkzeug dafür ist das einfachste Beispiel, das es gibt: **ein Teilchen,
 das in einem Kasten eingesperrt ist.** Mehr nicht.
@@ -172,8 +171,8 @@ def _k2():
     st.markdown(
         """
 Eine Gitarrensaite ist an **beiden Enden festgeklemmt**. Genau das ist der
-Punkt. Wenn du sie zupfst, kann sie nicht irgendwie schwingen – nur so, dass
-sie an den Enden stillsteht. Es passen also nur bestimmte Wellen hinein.
+Punkt. Wenn du sie zupfst, kann sie nicht irgendwie schwingen, sondern nur so,
+dass sie an den Enden stillsteht. Es passen also nur bestimmte Wellen hinein.
 """
     )
 
@@ -203,7 +202,7 @@ annehmen. Eine eingeklemmte kann das nicht mehr.
 **Die Auswahl ist abzählbar.** Man kann die erlaubten Schwingungen
 durchnummerieren: die erste, die zweite, die dritte. Keine Zwischenstufen.
 
-Das ist keine geheimnisvolle Physik, das ist Handwerk – jeder Instrumentenbauer
+Das ist keine geheimnisvolle Physik, sondern Handwerk. Jeder Instrumentenbauer
 weiß es seit Jahrhunderten.
 """
     )
@@ -217,7 +216,7 @@ weiß es seit Jahrhunderten.
         """
 Jetzt sperren wir statt einer Saite ein **Elektron** ein, in einen winzigen
 Kasten, aus dem es nicht heraus kann. Es verhält sich wie die eingeklemmte
-Saite: Es hat eine **Welle**, und diese Welle muss an den Wänden auf null
+Saite. Es hat eine **Welle** und diese Welle muss an den Wänden auf null
 gehen.
 """
     )
@@ -242,14 +241,15 @@ gehen.
 
     st.markdown(
         """
-**n ist eine Hausnummer, keine Messgröße.** Sie zählt durch, um welche der
-erlaubten Wellen es geht: n = 1 ist die einfachste, ein Bauch, der ruhigste
-Zustand. n ist immer eine ganze Zahl – ein n = 1,5 gibt es nicht.
+**n ist eine Hausnummer und keine Messgröße.** Sie zählt durch, um welche der
+erlaubten Wellen es geht. n gleich 1 ist die einfachste, ein einziger Bauch,
+der ruhigste Zustand. n ist immer eine ganze Zahl, ein n gleich 1,5 gibt es
+nicht.
 
 **Und die Welle ist keine Welle aus einem Stoff.** Das Elektron wackelt nicht
 auf und ab wie ein Seil. Diese Welle heißt **Wellenfunktion ψ** und ist eine
 Rechengröße. Ihre Bedeutung steckt im Quadrat: Wo ψ² groß ist, findet man das
-Teilchen wahrscheinlich; wo es null ist, nie. Schalte oben auf *Aufenthalt ψ²*
+Teilchen wahrscheinlich, wo es null ist, nie. Schalte oben auf *Aufenthalt ψ²*
 um, dann siehst du es.
 """
     )
@@ -258,13 +258,13 @@ um, dann siehst du es.
         st.markdown(
             f"""
 Ein **Elektronenvolt** ist die Portionsgröße, wenn man über einzelne
-Elektronen spricht – so wie man Reis in Körnern zählt und nicht in Kilogramm.
+Elektronen spricht, so wie man Reis in Körnern zählt und nicht in Kilogramm.
 Man muss sich nur einen einzigen Wert merken, dann ordnet sich alles ein:
 
 | Energie | Was das ist |
 |---|---|
 | 0,025 eV | die Wärme in diesem Raum, pro Teilchen |
-| 1,8 – 3,1 eV | sichtbares Licht, von Rot bis Violett |
+| 1,8 bis 3,1 eV | sichtbares Licht, von Rot bis Violett |
 | 4 eV | UV-Strahlung, die Sonnenbrand macht |
 | 9,8 eV | die Dreifachbindung im Stickstoff aus Block 1 |
 | 13,6 eV | genug, um ein Wasserstoffatom zu zerlegen |
@@ -282,7 +282,7 @@ Für die aus der Chemie: 1 eV entspricht 96,5 kJ/mol.
 # ==================================================================
 def _k3():
     kapitel_kopf(3, N_KAP, "Die Energieleiter",
-                 "Eine Treppe ohne Rampe – und die Antwort auf Kapitel 1.")
+                 "Eine Treppe ohne Rampe und die Antwort auf Kapitel 1.")
     st.markdown(
         "Jede erlaubte Welle gehört zu einer bestimmten Energie. Da es nur "
         "bestimmte Wellen gibt, gibt es auch **nur bestimmte Energien**."
@@ -297,7 +297,7 @@ def _k3():
         einheit="fach", format_str="%.1f", toleranz_gut=0.6,
         aufloesung_text=(
             "**Vierfach.** Die Energie wächst mit dem Quadrat der Quantenzahl "
-            "und fällt mit dem Quadrat der Breite. Halbe Breite heißt "
+            "und fällt mit dem Quadrat der Breite. Halbe Breite heißt also "
             "vierfache Energie. Genau diese Empfindlichkeit ist der Grund, "
             "warum die Quantenmechanik im Kleinen alles bestimmt und im "
             "Großen nicht auffällt."
@@ -331,31 +331,31 @@ def _k3():
 
     st.markdown(
         """
-**Das ist eine Treppe ohne Rampe.** Zwischen den Stufen ist nichts – nicht
-„schwer erreichbar“, sondern nicht existent. Genau daher kommt der Name:
+**Das ist eine Treppe ohne Rampe.** Zwischen den Stufen ist nichts. Nicht
+schwer erreichbar, sondern nicht existent. Genau daher kommt der Name:
 *quantum* heißt auf Lateinisch „wie viel“, ein Quantum ist eine abgezählte
 Portion.
 
 Zwei Dinge sieht man sofort. Erstens werden die Stufen nach oben immer weiter
-auseinander, weil die Energie mit n² wächst. Zweitens: Je enger der Kasten,
-desto größer die Abstände. Zieh den Breiten-Regler klein und schau zu.
+auseinander, weil die Energie mit n² wächst. Zweitens gilt: Je enger der
+Kasten, desto größer die Abstände. Zieh den Breiten-Regler klein und schau zu.
 """
     )
     st.warning(
         "**Das ist der Satz, auf den es ankommt:**\n\n"
         "Je enger du ein Teilchen einsperrst, desto heftiger wehrt es sich. "
-        "Ein eingesperrtes Teilchen kann nicht stillstehen; es hat immer eine "
-        "Mindestenergie, die **Nullpunktsenergie**.\n\n"
-        "Und damit ist Kapitel 1 beantwortet: Ein Elektron im Atomkern wäre "
+        "Ein eingesperrtes Teilchen kann nicht stillstehen, es hat immer eine "
+        "Mindestenergie. Sie heißt **Nullpunktsenergie**.\n\n"
+        "Damit ist Kapitel 1 beantwortet. Ein Elektron im Atomkern wäre "
         "extrem eng eingesperrt und bräuchte dafür absurd viel Energie. Die "
-        "hat es nicht. Also bleibt es draußen, und Atome sind stabil."
+        "hat es nicht. Also bleibt es draußen und Atome sind stabil."
     )
 
     # -------------------------------------------------- Makro-Probe
     st.divider()
     st.subheader("Warum du davon nichts merkst")
     st.markdown(
-        "Dieselbe Formel, andere Zahlen: Wir sperren statt eines Elektrons "
+        "Dieselbe Formel, andere Zahlen. Wir sperren statt eines Elektrons "
         "**dich** in einen Raum."
     )
 
@@ -372,15 +372,15 @@ desto größer die Abstände. Zieh den Breiten-Regler klein und schau zu.
 Zum Vergleich: Ein Sandkorn einen Millimeter anzuheben kostet ungefähr
 0,00000001 Joule, also rund **{1e-8 / sprung:.0e} mal mehr**.
 
-Deine Energiestufen sind da. Sie liegen nur so absurd eng beieinander, dass
-keine Messung der Welt sie unterscheiden könnte.
+Deine Energiestufen sind also da. Sie liegen nur so absurd eng beieinander,
+dass keine Messung der Welt sie unterscheiden könnte.
 """
     )
     merksatz(
         "Die Quantenmechanik hat die klassische Physik nicht widerlegt, "
         "sondern <b>eingeordnet</b>. Newton ist nicht falsch, sondern ein "
-        "Grenzfall für große, schwere Dinge – und der stimmt dort so gut, "
-        "dass wir bis heute Raumsonden damit steuern."
+        "Grenzfall für große, schwere Dinge. Dieser stimmt dort so gut, dass "
+        "wir bis heute Raumsonden damit steuern."
     )
 
     fachkasten(
@@ -392,17 +392,17 @@ keine Messung der Welt sie unterscheiden könnte.
 **Das Modell ist eine Idealisierung.** Es setzt unendlich hohe Wände voraus,
 ein einziges Teilchen ohne Wechselwirkung, eine einzige Raumrichtung und keine
 Relativität. Ein echtes Elektron in einem echten Kristall sitzt in keinem
-solchen Kasten, und die Rechnung mit einem Menschen im Zimmer ist ein
-Gedankenexperiment, kein Messvorschlag.
+solchen Kasten. Die Rechnung mit einem Menschen im Zimmer ist ein
+Gedankenexperiment und kein Messvorschlag.
 
 Trotzdem trifft das Modell die Größenordnung von Quantenpunkten, von
 Farbstoffmolekülen mit langen konjugierten Ketten und von Elektronen in dünnen
-Halbleiterschichten – überall dort, wo „eingesperrt“ die wesentliche
+Halbleiterschichten. Überall dort also, wo Eingesperrtsein die wesentliche
 Eigenschaft ist.
 
 **Brücke zu Block 1:** 1 eV = 96,485 kJ/mol. Ein Elektron im 1-nm-Kasten hat
-im Grundzustand 0,376 eV, also 36 kJ/mol – etwa ein Sechsundzwanzigstel der
-Stickstoff-Dreifachbindung.
+im Grundzustand 0,376 eV, also 36 kJ/mol. Das ist etwa ein Sechsundzwanzigstel
+der Stickstoff-Dreifachbindung.
 """,
     )
 
@@ -416,8 +416,9 @@ def _k4():
     st.markdown(
         """
 Fällt ein Teilchen von einer Stufe auf eine tiefere, muss die Energiedifferenz
-irgendwo hin. Sie wird als **Lichtteilchen** abgegeben, und dessen Energie
-bestimmt die **Farbe**: große Differenz blau, kleine Differenz rot.
+irgendwo hin. Sie wird als **Lichtteilchen** abgegeben. Dessen Energie
+bestimmt die **Farbe**. Große Differenz heißt blau, kleine Differenz heißt
+rot.
 """
     )
 
@@ -453,9 +454,10 @@ bestimmt die **Farbe**: große Differenz blau, kleine Differenz rot.
     if 380 <= wl_nm <= 750:
         st.success(f"Sichtbares Licht bei {wl_nm:.0f} nm.")
     elif wl_nm < 380:
-        st.info(f"{wl_nm:.0f} nm – Ultraviolett, für dein Auge unsichtbar.")
+        st.info(f"{wl_nm:.0f} nm, also Ultraviolett und für dein Auge "
+                "unsichtbar.")
     else:
-        st.info(f"{wl_nm:.0f} nm – Infrarot, spürbar als Wärme.")
+        st.info(f"{wl_nm:.0f} nm, also Infrarot und spürbar als Wärme.")
     st.caption(
         "Grau heißt nicht „keine Farbe“, sondern „außerhalb dessen, was dein "
         "Auge aufnimmt“. Die Strahlung ist da, du siehst sie nur nicht."
@@ -469,10 +471,11 @@ bestimmt die **Farbe**: große Differenz blau, kleine Differenz rot.
     st.markdown(
         """
 Winzige Kristalle von wenigen Nanometern Größe heißen **Quantenpunkte**. Ihre
-Farbe hängt nicht nur vom Material ab, sondern vor allem von ihrer **Größe** –
+Farbe hängt nicht nur vom Material ab, sondern vor allem von ihrer **Größe**,
 genau nach dem Prinzip, an dem du gerade drehst.
 
-Kleiner Punkt → enger Kasten → größere Sprünge → blaueres Licht.
+Kleiner Punkt heißt enger Kasten, enger Kasten heißt größere Sprünge, größere
+Sprünge heißen blaueres Licht.
 
 In QLED-Fernsehern steckt genau das. Die Kastenbreite, an der du hier
 herumschiebst, ist dort eine Fertigungstoleranz.
@@ -487,15 +490,15 @@ Dieselbe Formel, die hier aus einem Energieunterschied eine Farbe macht,
 beantwortet auch die offene Frage aus Block 1.
 
 Die Dreifachbindung im Stickstoff entspricht **9,8 eV**. Ein Lichtteilchen mit
-dieser Energie hätte eine Wellenlänge von **127 Nanometern** – tiefes
-Ultraviolett, das die Atmosphäre vollständig wegfiltert.
+dieser Energie hätte eine Wellenlänge von **127 Nanometern**. Das ist tiefes
+Ultraviolett. Die Atmosphäre filtert es vollständig weg.
 """
     )
     st.info(
         "**Deshalb düngt Sonnenlicht nicht.** Es ist nicht zu schwach im Sinne "
         "von zu wenig, sondern die einzelnen Portionen sind zu klein. Tausend "
-        "rote Photonen ersetzen kein ultraviolettes – dasselbe Prinzip wie bei "
-        "der Treppe ohne Rampe."
+        "rote Photonen ersetzen kein ultraviolettes. Das ist dasselbe Prinzip "
+        "wie bei der Treppe ohne Rampe."
     )
 
 
@@ -509,12 +512,12 @@ def _k5():
 
     st.markdown(
         """
-Alles, was in Block 1 stand – Bindungsstärken, Reaktionsenergien, Ausbeuten –
-stammt aus dem Labor. Jemand hat gemessen.
+Alles, was in Block 1 stand, also Bindungsstärken, Reaktionsenergien und
+Ausbeuten, stammt aus dem Labor. Jemand hat gemessen.
 
 Seit 1926 gibt es einen zweiten Weg. Schrödingers Gleichung behauptet: Wenn du
 sagst, **wo die Atomkerne stehen** und **wie viele Elektronen es gibt**, folgt
-alles Übrige daraus. Sonst nichts.
+alles Übrige daraus. Sonst braucht es nichts.
 
 Diese Behauptung prüfen wir jetzt nach. Jede Zahl auf dieser Seite entsteht im
 Moment des Knopfdrucks.
@@ -529,19 +532,24 @@ Moment des Knopfdrucks.
     with st.expander("**Wie macht der Computer das?**"):
         st.markdown(
             """
-Ein Molekül ist ein Haufen Elektronen, die sich alle gegenseitig abstoßen.
-Sobald es mehr als zwei sind, lässt sich das nicht mehr exakt lösen – nicht
-weil die Rechner zu langsam wären, sondern weil es keine geschlossene Lösung
-gibt.
+Exakt lösen lässt sich die Gleichung nur für ein einziges Elektron. Sobald es
+mehrere sind, hängt jedes davon ab, wo alle anderen gerade sind. Alle hängen
+also gleichzeitig voneinander ab. Dafür gibt es keine geschlossene Lösung.
 
-Das Verfahren hier heißt **Hartree-Fock** und macht eine Vereinfachung: Stell
-dir eine volle Party vor. Statt auszurechnen, wie jeder Gast jedem einzelnen
-anderen ausweicht, tut man so, als bewege sich jeder durch eine gleichmäßige
-Menschenmenge. Jeder spürt den Durchschnitt aller anderen, niemand spürt einen
-einzelnen.
+Der Ausweg ist eine Vereinfachung. Man tut so, als spüre jedes Elektron nicht
+die einzelnen anderen, sondern nur deren Durchschnitt. Stell dir eine volle
+Halle vor: Statt auszurechnen, wie jeder Gast jedem einzelnen anderen
+ausweicht, nimmt man an, jeder gehe einfach durch eine gleichmäßig dichte
+Menge.
 
-Das ist grob, aber schnell – und ehrlich, weil man genau weiß, was weggelassen
-wurde. Am Ende dieses Kapitels sehen wir, wo die Vereinfachung zusammenbricht.
+Damit wird die Rechnung machbar, aber sie beißt sich in den Schwanz. Der
+Durchschnitt hängt davon ab, wo die Elektronen sind. Wo sie sind, hängt
+vom Durchschnitt ab. Also rät der Computer eine erste Verteilung, rechnet
+daraus eine neue, rechnet daraus wieder eine neue und wiederholt das, bis sich
+nichts mehr ändert. Was dann übrig bleibt, ist die Antwort.
+
+Das ist grob, aber schnell. Man weiß außerdem genau, was weggelassen wurde. Am Ende
+dieses Kapitels sehen wir, wo die Vereinfachung zusammenbricht.
 """
         )
 
@@ -550,10 +558,10 @@ wurde. Am Ende dieses Kapitels sehen wir, wo die Vereinfachung zusammenbricht.
     st.subheader("Schritt 1 · Rate gegen den Computer")
     st.markdown(
         """
-Wir nehmen das einfachste Molekül überhaupt: **H₂**, zwei Wasserstoffatome,
-zwei Elektronen. Die einzige Frage lautet: Wie weit stehen die beiden Kerne
-voneinander entfernt? Ein Ångström ist ein Zehnmilliardstel Meter, ungefähr
-die Größe eines Atoms.
+Wir nehmen das einfachste Molekül überhaupt: **H₂**, also zwei
+Wasserstoffatome mit zwei Elektronen. Die einzige Frage lautet, wie weit die
+beiden Kerne voneinander entfernt stehen. Ein Ångström ist ein
+Zehnmilliardstel Meter und ungefähr die Größe eines Atoms.
 """
     )
 
@@ -600,23 +608,23 @@ die Größe eines Atoms.
         if abs(tipp_alt - R_H2) < abs(r_rechnung - R_H2):
             st.success(
                 "**Du warst näher dran als die Rechnung.** Das ist keine "
-                "Blamage für die Quantenmechanik: Der Computer hatte keine "
+                "Blamage für die Quantenmechanik. Der Computer hatte keine "
                 "Vorkenntnis, du schon. Er hat den Wert hergeleitet, du hast "
                 "ihn geschätzt."
             )
         else:
             st.success(
                 "**Der Computer war näher.** Bemerkenswert ist nicht, dass er "
-                "gewinnt, sondern womit: Eingegeben wurden zwei Protonen und "
+                "gewinnt, sondern womit. Eingegeben wurden zwei Protonen und "
                 "zwei Elektronen."
             )
 
         st.markdown(
             """
 Die Kurve erzählt die ganze Geschichte einer chemischen Bindung. Links stoßen
-sich die Kerne ab, die Energie schießt hoch. Rechts ist die Bindung schlicht
-nicht mehr da. Das **Tal in der Mitte** ist die Bindung: seine Lage ist die
-Bindungslänge, seine Tiefe die Bindungsstärke.
+sich die Kerne ab und die Energie schießt hoch. Rechts ist die Bindung
+schlicht nicht mehr da. Das **Tal in der Mitte** ist die Bindung. Seine Lage
+ist die Bindungslänge, seine Tiefe die Bindungsstärke.
 """
         )
         e1, e2 = st.columns(2)
@@ -626,9 +634,10 @@ Bindungslänge, seine Tiefe die Bindungsstärke.
             f"Die Rechnung macht die Bindung rund "
             f"{abs(tiefe-DE_H2)/DE_H2*100:.0f} Prozent zu stark. Für ein "
             "Ergebnis, in das kein einziger Messwert eingeflossen ist, ist "
-            "das erstaunlich nah. – Der geläufige Tabellenwert 436 kJ/mol ist "
-            "kleiner als diese Taltiefe, weil ein Molekül nie ganz am Boden "
-            "des Tals sitzt: Es behält die Nullpunktsenergie aus Kapitel 3."
+            "das erstaunlich nah. Der geläufige Tabellenwert von 436 kJ/mol "
+            "ist übrigens kleiner als diese Taltiefe, weil ein Molekül nie "
+            "ganz am Boden des Tals sitzt. Es behält die Nullpunktsenergie "
+            "aus Kapitel 3."
         )
 
     # ---------------------------------------------- Schritt 2
@@ -666,25 +675,26 @@ Bindungslänge, seine Tiefe die Bindungsstärke.
         st.metric("Berechnete Reaktionsenergie", f"{dE:+.0f} kJ/mol")
         if bool(tipp_vz) and tipp_vz.startswith("Die Reaktion setzt"):
             st.success(
-                "**Dein Tipp stimmt, und die Rechnung bestätigt ihn.** Das "
+                "**Dein Tipp stimmt und die Rechnung bestätigt ihn.** Das "
                 "Minuszeichen heißt: Energie wird frei."
             )
         else:
             st.info(
-                "**Das Vorzeichen ist negativ: Energie wird frei.** Das ist "
-                "erstaunlich, wenn man Block 1 im Kopf hat. Die Reaktion "
-                "*will* laufen – sie kommt nur nicht los. Bei Haber-Bosch "
-                "geht es nie darum, die Reaktion energetisch zu ermöglichen, "
+                "**Das Vorzeichen ist negativ, also wird Energie frei.** Das "
+                "ist erstaunlich, wenn man Block 1 im Kopf hat. Die Reaktion "
+                "*will* laufen, sie kommt nur nicht los. Bei Haber-Bosch geht "
+                "es nie darum, die Reaktion energetisch zu ermöglichen, "
                 "sondern nur darum, ihr den Weg zu bahnen."
             )
         st.markdown(
             f"""
-Gemessen wird für diese Reaktion **{DH_REAKTION:.0f} kJ/mol**, berechnet sind
-es {dE:+.0f}. Der Unterschied sieht nach einem groben Fehler aus, ist aber
-größtenteils keiner: Die Rechnung kennt nur die Elektronen bei festgehaltenen
-Kernen. Die Kerne stehen nie still – jedes Molekül behält die
-Nullpunktsenergie aus Kapitel 3, und Ammoniak hat davon deutlich mehr als N₂
-und H₂ zusammen. Zählt man sie dazu, bleiben rund 10 kJ/mol Unterschied.
+Gemessen werden für diese Reaktion **{DH_REAKTION:.0f} kJ/mol**, berechnet
+sind es {dE:+.0f}. Der Unterschied sieht nach einem groben Fehler aus, ist
+aber größtenteils keiner. Die Rechnung kennt nur die Elektronen bei
+festgehaltenen Kernen. Die Kerne stehen aber nie still, denn jedes Molekül
+behält die Nullpunktsenergie aus Kapitel 3. Ammoniak hat davon deutlich
+mehr als N₂ und H₂ zusammen. Zählt man sie dazu, bleiben rund 10 kJ/mol
+Unterschied.
 """
         )
 
@@ -694,7 +704,7 @@ und H₂ zusammen. Zählt man sie dazu, bleiben rund 10 kJ/mol Unterschied.
     st.markdown(
         "Bindungslänge fast richtig, Vorzeichen richtig, Reaktionsenergie "
         "brauchbar. Man könnte den Eindruck bekommen, das Verfahren sei "
-        "zuverlässig. Ist es nicht – und es versagt ausgerechnet an der "
+        "zuverlässig. Ist es nicht. Es versagt ausgerechnet an der "
         "Bindung, um die sich der ganze Nachmittag dreht."
     )
 
@@ -715,25 +725,26 @@ und H₂ zusammen. Zählt man sie dazu, bleiben rund 10 kJ/mol Unterschied.
         )
         st.markdown(
             """
-Der Grund führt zurück zur Party-Analogie. Hartree-Fock lässt jedes Elektron
-nur den **Durchschnitt** aller anderen spüren. In Wirklichkeit weichen sich
-Elektronen einzeln und im Moment aus, und dieses Ausweichen spart Energie. Man
-nennt es Korrelation, und Hartree-Fock lässt sie weg.
+Der Grund führt zurück zur vollen Halle. Die Rechnung lässt jedes Elektron nur
+den **Durchschnitt** aller anderen spüren. In Wirklichkeit weichen sich
+Elektronen einzeln und im selben Moment aus, so wie Menschen in einer Menge
+einander tatsächlich ausweichen statt durcheinanderzugehen. Dieses Ausweichen
+spart Energie. Die Rechnung lässt es weg.
 
-Bei zwei Elektronen im H₂ fällt das kaum ins Gewicht. In einer Dreifachbindung,
-wo sechs Elektronen auf engstem Raum zwischen zwei Kernen zusammengedrängt
-sind, ist es der halbe Effekt.
+Bei zwei Elektronen im H₂ fällt das kaum ins Gewicht. In einer
+Dreifachbindung, wo sechs Elektronen auf engstem Raum zwischen zwei Kernen
+zusammengedrängt sind, ist es der halbe Effekt.
 
-Warum dann die Reaktionsenergie in Schritt 2 trotzdem passt: Dort stehen auf
-beiden Seiten ganze Moleküle, und derselbe Fehler tritt links wie rechts auf –
-er hebt sich weitgehend auf. Hier dagegen steht ein Molekül gegen zwei
-einzelne Atome, und es gibt nichts, was sich aufheben könnte.
+Warum die Reaktionsenergie in Schritt 2 trotzdem passt, liegt daran, dass dort
+auf beiden Seiten ganze Moleküle stehen. Derselbe Fehler tritt links wie
+rechts auf und hebt sich weitgehend auf. Hier dagegen steht ein Molekül gegen
+zwei einzelne Atome. Es gibt nichts, was sich aufheben könnte.
 """
         )
         merksatz(
             "Ein Modell ist nicht richtig oder falsch, sondern innerhalb "
             "eines Bereichs brauchbar. Die Grenzen zu kennen gehört zum "
-            "Modell dazu – wer sie nicht kennt, hat es nicht verstanden, "
+            "Modell dazu. Wer sie nicht kennt, hat es nicht verstanden, "
             "sondern nur bedient."
         )
 
@@ -741,14 +752,14 @@ einzelne Atome, und es gibt nichts, was sich aufheben könnte.
     st.divider()
     code_feld(
         "qm",
-        '''# Die Quantenchemie steht dir hier komplett zur Verfuegung.
+        '''# Die Quantenchemie steht dir hier komplett zur Verfügung.
 #
 #   qm_energie(atome, spin=0)  ->  Energie in Hartree
-#   atome: Liste aus (Element, (x, y, z)) in Angstrom
-#   Verfuegbar sind H, C, N und O.
+#   atome: Liste aus (Element, (x, y, z)) in Ångström
+#   Verfügbar sind H, C, N und O.
 #   HARTREE_KJ rechnet Hartree in kJ/mol um.
 
-# Beispiel: die Bindungslaenge von Kohlenmonoxid suchen
+# Beispiel: die Bindungslänge von Kohlenmonoxid suchen
 print("Abstand    Energie")
 bester, beste_E = None, 0
 for abstand in [0.9, 1.0, 1.1, 1.13, 1.2, 1.3]:
@@ -758,15 +769,15 @@ for abstand in [0.9, 1.0, 1.1, 1.13, 1.2, 1.3]:
         bester, beste_E = abstand, E
 
 print()
-print(f"Tiefster Punkt bei {bester} Angstrom.")
-print("Im Labor gemessen: 1.128 Angstrom.")
+print(f"Tiefster Punkt bei {bester} Ångström.")
+print("Im Labor gemessen: 1.128 Ångström.")
 
 # Zum Weiterspielen:
-# - Wasser bauen: O in der Mitte, zwei H im Winkel von 104.5 Grad
-# - ein Atom weit wegschieben und zusehen, wie die Bindung verschwindet
+# Wasser bauen, also O in der Mitte und zwei H im Winkel von 104.5 Grad.
+# Oder ein Atom weit wegschieben und zusehen, wie die Bindung verschwindet.
 ''',
-        hinweis="Ändere Elemente, Positionen, Abstände. Kaputtmachen kannst "
-                "du nichts, *Zurücksetzen* holt das Original zurück.",
+        hinweis="Ändere Elemente, Positionen und Abstände. Kaputtmachen "
+                "kannst du nichts, *Zurücksetzen* holt das Original zurück.",
         hoehe=380,
         extras={
             "qm_energie": lambda atome, spin=0: hf_pure.energie(
@@ -781,12 +792,14 @@ print("Im Labor gemessen: 1.128 Angstrom.")
         "Methode, Grenzen, Zahlen",
         f"""
 **Verfahren.** Hartree-Fock im Basissatz STO-3G, implementiert in `hf_pure.py`
-– reines numpy, keine externe Quantenchemie-Bibliothek. Zwei-Elektronen-
-Integrale über das McMurchie-Davidson-Schema.
+in reinem numpy, ohne externe Quantenchemie-Bibliothek. Die
+Zwei-Elektronen-Integrale laufen über das McMurchie-Davidson-Schema. Das oben
+beschriebene Raten und Nachrechnen bis zur Selbstkonsistenz ist das
+SCF-Verfahren.
 
-**Basissatz.** STO-3G ist der kleinste gebräuchliche Satz: drei Gaußfunktionen
-pro Atomorbital. Größere Sätze (6-31G*, cc-pVTZ) kämen näher heran, kosten
-aber ein Vielfaches an Rechenzeit.
+**Basissatz.** STO-3G ist der kleinste gebräuchliche Satz mit drei
+Gaußfunktionen pro Atomorbital. Größere Sätze wie 6-31G* oder cc-pVTZ kämen
+näher heran, kosten aber ein Vielfaches an Rechenzeit.
 
 **Was fehlt.** Die Elektronenkorrelation. Der dabei verlorene Energiebeitrag
 ist bei Mehrfachbindungen groß.
@@ -798,10 +811,10 @@ H₂ *D*<sub>e</sub> = {DE_H2:.0f} kJ/mol gegenüber 436 kJ/mol im Tabellenwerk,
 N₂ {DE_N2:.0f} gegenüber 945.
 
 **Reaktionsenergie.** Berechnet wird die reine Elektronenenergie. Für den
-Vergleich mit der gemessenen Reaktionsenthalpie ({DH_REAKTION:.0f} kJ/mol bei
-25 °C) fehlen die Nullpunktsschwingungen (≈ +78 kJ/mol, weil zwei NH₃ deutlich
-mehr Schwingungsenergie tragen als N₂ und drei H₂) sowie kleinere thermische
-Beiträge und die Volumenarbeit (zusammen ≈ −15 kJ/mol). Damit landet die
-Rechnung rund 10 kJ/mol neben dem Messwert.
+Vergleich mit der gemessenen Reaktionsenthalpie von {DH_REAKTION:.0f} kJ/mol
+bei 25 °C fehlen die Nullpunktsschwingungen mit etwa +78 kJ/mol, weil zwei
+NH₃ deutlich mehr Schwingungsenergie tragen als N₂ und drei H₂, sowie
+kleinere thermische Beiträge und die Volumenarbeit mit zusammen etwa
+−15 kJ/mol. Damit landet die Rechnung rund 10 kJ/mol neben dem Messwert.
 """,
     )

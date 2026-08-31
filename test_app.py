@@ -68,12 +68,6 @@ at.slider(key="barriere").set_value(50).run()
 at.slider(key="t_kat").set_value(20).run()
 pruefe("HB K3 Barriere 50 bei 20 Grad", at)
 
-at = seite(BLOCK1, hb.KAPITEL[3])
-for T, P in [(250, 10), (300, 50), (450, 200), (620, 400), (400, 300)]:
-    at.slider(key="t_spiel").set_value(T).run()
-    at.slider(key="p_spiel").set_value(P).run()
-    pruefe(f"HB K4 Reaktor {T} Grad / {P} bar", at)
-
 at = seite(BLOCK2, qw.KAPITEL[3])
 at.slider(key="l4").set_value(2.0).run()
 pruefe("QM K4 grosser Kasten (Infrarot)", at)

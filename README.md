@@ -1,7 +1,7 @@
 # Vom Dünger zur Quantenwelt
 
-Interaktive Streamlit-App zum Arbeitskreis *„Vom Dünger zur Quantenwelt –
-wie Wissenschaft unser Weltbild transformiert"* (Pro Scientia).
+Interaktive Streamlit-App zum Arbeitskreis *„Vom Dünger zur Quantenwelt. Wie
+Wissenschaft unser Weltbild transformiert"* (Pro Scientia).
 
 Eine App, zwei Blöcke, ein Link. Kein Vorwissen nötig.
 
@@ -11,13 +11,17 @@ Eine App, zwei Blöcke, ein Link. Kein Vorwissen nötig.
 
 | Seite | Kapitel | Worum es geht |
 |---|---|---|
-| **Start** | – | Einstieg und Bedienhinweise |
-| **Block 1 · Dünger aus Luft** | 4 | Von der Luft über die Bindungsenergie und den Katalysator bis zum selbstgebauten Reaktor |
+| **Start** | | Einstieg und Bedienhinweise |
+| **Block 1 · Dünger aus Luft** | 4 | Von der Luft über die Bindungsenergie und den Katalysator bis zu Haber und Bosch |
 | **Block 2 · Die Quantenwelt** | 5 | Teilchen im Kasten, von der Gitarrensaite über den QLED-Fernseher bis zur live gerechneten Quantenchemie |
-| **Nachschlagen** | – | Fachwörter und Quellen |
+| **Nachschlagen** | | Fachwörter und Quellen |
 
-Die App ist der Mitmachteil des Arbeitskreises. Die Diskussion findet in der
-Runde statt, nicht im Browser – deshalb enthält die App keine Diskussionsfragen.
+Die App ist nur ein Teil des Nachmittags. Molekülbaukasten, Geigerzähler und
+die Diskussion passieren im Raum. Wie alles zusammenspielt und was man wo dazu
+sagt, steht in **[manuskript.md](manuskript.md)**.
+
+Deshalb enthält die App selbst keine Diskussionsfragen. Sie erklärt, die Runde
+diskutiert.
 
 ### Die drei Regeln, nach denen sie gebaut ist
 
@@ -26,8 +30,8 @@ Runde statt, nicht im Browser – deshalb enthält die App keine Diskussionsfrag
    ausklappbaren 🔬-Kästen.
 2. **Ein einziger Maßstab.** Statt kJ/mol zu erklären, wird alles an einer
    Größe gemessen: der Energie, die die Umgebungswärme einem Molekül bei 20 °C
-   mitgibt (2,4 kJ/mol). Die Dreifachbindung im Stickstoff ist das 388-fache
-   davon – das reicht als Verständnis für das ganze Kapitel.
+   mitgibt, also rund 2,4 kJ/mol. Die Dreifachbindung im Stickstoff ist das
+   388-fache davon. Das reicht als Verständnis für das ganze Kapitel.
 3. **Erst raten, dann auflösen.** An mehreren Stellen legen sich die
    Teilnehmenden zuerst fest. Wer geschätzt hat, hört bei der Auflösung anders
    zu.
@@ -57,11 +61,11 @@ Auf <https://github.com> ein **neues, öffentliches** Repository anlegen
 ```
 app.py                 ← Einstiegsdatei, die muss Streamlit Cloud kennen
 bausteine.py
-chemie.py
 block_haber_bosch.py
 block_quantenwelt.py
 hf_pure.py
 requirements.txt
+manuskript.md
 README.md
 .gitignore
 ```
@@ -80,9 +84,9 @@ git push -u origin main
 ### 2 · App verbinden
 
 1. Auf <https://share.streamlit.io> mit dem GitHub-Konto anmelden.
-2. **Create app** → **Deploy a public app from GitHub**.
-3. Ausfüllen: Repository, Branch `main`, Main file path `app.py`, App URL frei
-   wählbar – das wird der Link zum Verschicken.
+2. **Create app**, dann **Deploy a public app from GitHub**.
+3. Ausfüllen: Repository, Branch `main`, Main file path `app.py`. Die App URL
+   ist frei wählbar und wird der Link zum Verschicken.
 4. **Deploy.** Der erste Start dauert ein bis zwei Minuten.
 
 ### 3 · Ändern
@@ -98,8 +102,8 @@ kommen.
 
 ## Ein Wort zur Sicherheit
 
-Das Codefeld in Block 2, Kapitel 5 führt echten Python-Code auf dem Server aus
-– anders wäre das Mitrechnen nicht möglich. Wer den Link hat, kann dort
+Das Codefeld in Block 2, Kapitel 5 führt echten Python-Code auf dem Server
+aus. Anders wäre das Mitrechnen nicht möglich. Wer den Link hat, kann dort
 beliebigen Code laufen lassen. Streamlit Community Cloud isoliert jede App in
 einem eigenen Container, es geht also nicht um euer Notebook. Trotzdem gilt:
 
@@ -119,19 +123,17 @@ Lokal geht dasselbe über die Umgebungsvariable `CODEFELDER=false`.
 
 ## Wie die Rechnungen entstehen
 
-**Quantenchemie.** `hf_pure.py` ist eine eigenständige Hartree-Fock-
-Implementierung in reinem numpy (STO-3G, Elemente H, C, N, O). Kein Compiler,
-keine Chemiebibliothek, läuft überall. Alle Rechnungen in Block 2, Kapitel 5
-laufen live im Moment des Knopfdrucks: die H₂-Kurve in unter einer Sekunde,
-die Reaktionsenergie in rund drei, die N₂-Bindung in rund zwei.
+`hf_pure.py` ist eine eigenständige Hartree-Fock-Implementierung in reinem
+numpy (STO-3G, Elemente H, C, N, O). Kein Compiler, keine Chemiebibliothek,
+läuft überall. Alle Rechnungen in Block 2, Kapitel 5 laufen live im Moment des
+Knopfdrucks: die H₂-Kurve in unter einer Sekunde, die Reaktionsenergie in rund
+drei Sekunden, die N₂-Bindung in rund zwei.
 
-**Gleichgewicht und Geschwindigkeit.** In `chemie.py`. Das Gleichgewicht ist
-gegen die klassische Messtabelle von Larson & Dodge angepasst und trifft sie
-zwischen 10 und 600 bar auf etwa einen Prozentpunkt. Die Geschwindigkeit ist
-eine reine Arrhenius-Abschätzung, normiert auf den realen Betriebspunkt.
-
-Alle Vereinfachungen und ihre Grenzen stehen in den 🔬-Kästen der jeweiligen
-Kapitel – das gehört zum Thema des Arbeitskreises dazu.
+Verglichen wird gegen spektroskopische Taltiefen *D*<sub>e</sub> und nicht
+gegen die geläufigen Tabellenwerte, weil die Rechnung die Kerne festhält und
+die Nullpunktsschwingung nicht kennt. Alle Vereinfachungen und ihre Grenzen
+stehen in den 🔬-Kästen der jeweiligen Kapitel. Das gehört zum Thema des
+Arbeitskreises dazu.
 
 ---
 
@@ -143,24 +145,6 @@ python test_app.py
 
 Klickt jedes Kapitel, jeden wichtigen Regler und jeden Rechenknopf durch und
 meldet jede Ausnahme. Läuft in etwa einer Minute durch.
-
----
-
-## Am Tag des Arbeitskreises
-
-* **Link vorher aufwärmen** (siehe oben).
-* **Jede und jeder öffnet den Link selbst** – auf dem Handy klappt die
-  Navigation über das »-Symbol oben links auf.
-* **Block 1, Kapitel 1** gehört dem Molekülbaukasten: N₂, H₂ und NH₃ von Hand
-  nachbauen, bevor die App die Gleichung durchrechnet.
-* **Die Ratefragen wirklich raten lassen.** Block 1 / Kapitel 2 („Wie viel mehr
-  Aufwand für N≡N?") und Block 2 / Kapitel 5 („Wo liegt das Minimum?") sind die
-  beiden Stellen, an denen die Runde aufwacht.
-* **Block 1, Kapitel 4 ist der Wettbewerb.** Wer findet zuerst Bedingungen, bei
-  denen alle drei Häkchen grün werden? Der Startpunkt (300 °C, 50 bar) liegt
-  bewusst daneben.
-* **Zeitplan:** Pro Block etwa 30 Minuten. Wer knapp in der Zeit ist, kann
-  Block 2 / Kapitel 5 kürzen und nur Schritt 1 rechnen lassen.
 
 ---
 

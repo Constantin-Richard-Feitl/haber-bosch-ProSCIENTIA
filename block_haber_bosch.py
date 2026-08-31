@@ -1,21 +1,19 @@
 # -*- coding: utf-8 -*-
 """
-Block 1 – Dünger aus Luft.
+Block 1: Dünger aus Luft.
 
 Roter Faden:
-  K1  Der Rohstoff ist überall, und niemand kommt heran.
+  K1  Der Rohstoff ist überall und niemand kommt heran.
   K2  Warum nicht. Ein einziger Maßstab erklärt es.
   K3  Der Ausweg ist kein größerer Druck, sondern ein anderer Weg.
-  K4  Der Weg funktioniert nur als Kompromiss – baue ihn selbst.
+  K4  Was Haber und Bosch daraus gemacht haben, im Guten wie im Bösen.
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
 import streamlit as st
 
-import chemie as ch
 from bausteine import (
-    BLAU, ORANGE, GRUEN, ROT, DUNKELGRAU, KJ_ZIMMER,
+    BLAU, ORANGE, DUNKELGRAU, KJ_ZIMMER,
     balken_vergleich, boltzmann_anteil, seltenheit_anzeigen,
     wellenlaenge_nm, fachkasten, merksatz, kapitel_kopf, neue_figur,
     zeige, hoch, dez, schaetzfrage,
@@ -25,7 +23,7 @@ KAPITEL = [
     "1 · Ein Meer aus Stickstoff",
     "2 · Warum Luft nicht düngt",
     "3 · Der Katalysator",
-    "4 · Der Reaktor",
+    "4 · Haber und Bosch",
 ]
 N_KAP = len(KAPITEL)
 
@@ -59,17 +57,17 @@ Atemzug ziehst du Milliarden Stickstoffmoleküle ein und atmest sie unverändert
 wieder aus.
 
 Gleichzeitig ist Stickstoff der Nährstoff, an dem Pflanzenwachstum als Erstes
-scheitert. Er steckt in jedem Eiweiß, in jedem Stück DNA, in jedem Muskel.
+scheitert. Er steckt in jedem Eiweiß, in jedem Stück DNA und in jedem Muskel.
 """
     )
-    merksatz("Der Rohstoff ist überall – und niemand kommt an ihn heran.")
+    merksatz("Der Rohstoff ist überall und niemand kommt an ihn heran.")
 
     st.markdown(
         """
 Über Jahrtausende war Stickstoff deshalb ein Engpass. Man sammelte Mist, holte
-Guano von südamerikanischen Inseln, baute Salpeter in der Atacama-Wüste ab. Um
-1900 war absehbar, dass diese Quellen für eine wachsende Weltbevölkerung nicht
-reichen würden.
+Guano von südamerikanischen Inseln und baute Salpeter in der Atacama-Wüste ab.
+Um 1900 war absehbar, dass diese Quellen für eine wachsende Weltbevölkerung
+nicht mehr reichen würden.
 
 1909 löste Fritz Haber das Problem im Labor, 1913 baute Carl Bosch daraus eine
 Fabrik. Die Reaktion, um die sich alles dreht, sieht harmlos aus:
@@ -78,17 +76,17 @@ Fabrik. Die Reaktion, um die sich alles dreht, sieht harmlos aus:
     st.latex(r"\mathrm{N_2} + 3\,\mathrm{H_2} \;\longrightarrow\; "
              r"2\,\mathrm{NH_3}")
     st.markdown(
-        "Links zwei Gase, die es im Überfluss gibt. Rechts Ammoniak, aus dem "
-        "Dünger wird. **Bau die drei Moleküle mit dem Baukasten auf dem "
-        "Tisch nach** – dann steht die Gleichung als Objekt vor dir, bevor "
-        "wir sie durchrechnen."
+        "Links stehen zwei Gase, die es im Überfluss gibt. Rechts steht "
+        "Ammoniak, aus dem Dünger wird. **Bau die drei Moleküle mit dem "
+        "Baukasten auf dem Tisch nach.** Dann steht die Gleichung als Objekt "
+        "vor dir, bevor wir sie durchrechnen."
     )
 
     st.divider()
     m1, m2, m3 = st.columns(3)
     m1.metric("Stickstoff in der Luft", "78 %")
     m2.metric("Menschen, die davon leben", "≈ 48 %")
-    m3.metric("Anteil am Weltenergiebedarf", "1–2 %")
+    m3.metric("Anteil am Weltenergiebedarf", "1 bis 2 %")
     st.caption(
         "Rund die Hälfte der Menschheit isst heute Nahrung, deren Stickstoff "
         "aus diesem einen Verfahren stammt. Es verbraucht dafür ein bis zwei "
@@ -98,7 +96,7 @@ Fabrik. Die Reaktion, um die sich alles dreht, sieht harmlos aus:
 
     st.divider()
     st.markdown(
-        "Warum das trotzdem über hundert Jahre lang niemand hinbekommen hat, "
+        "Warum das über hundert Jahre lang trotzdem niemand hinbekommen hat, "
         "liegt an etwas, das man nicht sieht. Darum geht es im nächsten "
         "Kapitel."
     )
@@ -114,10 +112,10 @@ def _k2():
 
     st.markdown(
         """
-Stickstoff kommt in der Luft nie einzeln vor, sondern immer paarweise: **N₂**.
-Die beiden Atome halten sich mit einer **Dreifachbindung** aneinander fest –
-drei Elektronenpaare gleichzeitig. Es ist die stärkste Bindung, die zwei
-gleiche Atome miteinander eingehen können.
+Stickstoff kommt in der Luft nie einzeln vor, sondern immer paarweise als
+**N₂**. Die beiden Atome halten sich mit einer **Dreifachbindung** aneinander
+fest, also mit drei Elektronenpaaren gleichzeitig. Es ist die stärkste
+Bindung, die zwei gleiche Atome miteinander eingehen können.
 
 Bevor Stickstoff düngen kann, muss diese Bindung auf. Vorher passiert nichts.
 """
@@ -135,8 +133,8 @@ Bevor Stickstoff düngen kann, muss diese Bindung auf. Vorher passiert nichts.
         aufloesung_text=(
             "Der Faktor ist **2,2**. Die meisten tippen höher, weil eine "
             "Dreifachbindung nach dreimal so viel klingt. Der Unterschied "
-            "zwischen den Bindungen ist gar nicht das Erstaunliche an "
-            "dieser Geschichte."
+            "zwischen den Bindungen ist gar nicht das Erstaunliche an dieser "
+            "Geschichte."
         ),
     )
 
@@ -144,8 +142,8 @@ Bevor Stickstoff düngen kann, muss diese Bindung auf. Vorher passiert nichts.
         zeige(balken_vergleich(BINDUNGEN,
                                hervorheben="N≡N   im Stickstoff"))
         st.caption(
-            "N≡N ist stark, steht aber nicht allein an der Spitze – "
-            "Kohlenmonoxid hält noch fester zusammen. Der entscheidende "
+            "N≡N ist stark, steht aber nicht allein an der Spitze. "
+            "Kohlenmonoxid hält sogar noch fester zusammen. Der entscheidende "
             "Vergleich ist ein anderer."
         )
 
@@ -155,15 +153,15 @@ Bevor Stickstoff düngen kann, muss diese Bindung auf. Vorher passiert nichts.
     st.markdown(
         f"""
 Bindungsstärken werden in **kJ/mol** angegeben. Diese Einheit sagt niemandem
-etwas, der nicht täglich damit arbeitet, und sie muss es auch nicht. Es gibt
+etwas, der nicht täglich damit arbeitet. Sie muss es auch nicht. Es gibt
 einen einzigen Vergleichswert, der alles Weitere trägt:
 
 **Wie viel Energie bekommt ein Molekül von der Umgebungswärme mit?**
 
-Wärme ist nichts anderes als Bewegung: Je wärmer, desto heftiger zappeln die
-Moleküle, desto härter stoßen sie zusammen. Bei 20 °C liegt diese Energie in
-der Größenordnung von **{dez(KJ_ZIMMER)} kJ/mol**. Das ist das Kleingeld, mit
-dem die Chemie bei Zimmertemperatur einkaufen geht.
+Wärme ist nichts anderes als Bewegung. Je wärmer es ist, desto heftiger
+zappeln die Moleküle und desto härter stoßen sie zusammen. Bei 20 °C liegt
+diese Energie in der Größenordnung von **{dez(KJ_ZIMMER)} kJ/mol**. Das ist
+das Kleingeld, mit dem die Chemie bei Zimmertemperatur einkaufen geht.
 """
     )
 
@@ -176,17 +174,11 @@ dem die Chemie bei Zimmertemperatur einkaufen geht.
     ax.tick_params(axis="y", length=0)
     ax.set_xlabel("Energie  [kJ/mol]")
     ax.text(960, 1, "945", va="center", fontsize=10, color=DUNKELGRAU)
-    ax.annotate("2,4 – der Strich ganz links", xy=(KJ_ZIMMER, 0),
-                xytext=(120, 0), va="center", fontsize=9, color=BLAU,
+    ax.annotate("2,4", xy=(KJ_ZIMMER, 0), xytext=(120, 0), va="center",
+                fontsize=9, color=BLAU,
                 arrowprops=dict(arrowstyle="->", color=BLAU, lw=1.2))
     ax.set_xlim(0, 1080)
     zeige(fig)
-
-    merksatz(
-        f"Der untere Balken ist kein Fehler im Diagramm. Das Verhältnis ist "
-        f"<b>1 zu {945/KJ_ZIMMER:.0f}</b> – so wie ein Monatsgehalt zum Preis "
-        f"eines Hauses."
-    )
 
     # -------------------------------------------------- Boltzmann
     st.divider()
@@ -207,15 +199,14 @@ dem Schnitt. Ob es davon genug gibt, sagt der Regler.
     if temp >= 1500:
         st.warning(
             "**Bei dieser Temperatur ginge es tatsächlich los.** Nur ist das "
-            "kein Weg: Ammoniak selbst hält solche Temperaturen nicht aus. "
-            "Man würde die Bindung knacken und das Produkt im selben Moment "
-            "wieder zerlegen."
+            "kein Weg, denn Ammoniak selbst hält solche Temperaturen nicht "
+            "aus. Man würde die Bindung knacken und das Produkt im selben "
+            "Moment wieder zerlegen."
         )
 
     merksatz(
-        "Bei Zimmertemperatur – also dort, wo Pflanzen wachsen und wo die "
-        "Luft steht – heißt diese Zahl nicht <i>selten</i>. Sie heißt "
-        "<i>nie</i>."
+        "Bei Zimmertemperatur, also dort wo Pflanzen wachsen und wo die Luft "
+        "steht, heißt diese Zahl nicht <i>selten</i>. Sie heißt <i>nie</i>."
     )
 
     # -------------------------------------------------- Licht
@@ -225,14 +216,14 @@ dem Schnitt. Ob es davon genug gibt, sagt der Regler.
     st.markdown(
         f"""
 Wärme ist nicht die einzige Energiequelle. Ein Lichtteilchen trägt seine
-Energie in einem einzigen Paket, es muss nichts zusammensparen. Um N≡N in
+Energie in einem einzigen Paket und muss nichts zusammensparen. Um N≡N in
 einem Schlag zu knacken, bräuchte es eine Wellenlänge von **{lam:.0f}
 Nanometern**.
 """
     )
     c1, c2 = st.columns(2)
     c1.metric("Nötige Wellenlänge", f"{lam:.0f} nm")
-    c2.metric("Was dein Auge noch sieht", "380 – 750 nm")
+    c2.metric("Was dein Auge noch sieht", "380 bis 750 nm")
     st.markdown(
         "Das ist tiefes Ultraviolett. Diese Strahlung wird in der hohen "
         "Atmosphäre vollständig weggefiltert, unter anderem von Stickstoff "
@@ -244,7 +235,7 @@ Nanometern**.
     )
     st.caption(
         "Diese Rechnung kommt im Block Quantenwelt noch einmal vor. Dort "
-        "wird aus einem Energieunterschied eine Farbe – dieselbe Formel."
+        "wird aus einem Energieunterschied eine Farbe, mit derselben Formel."
     )
 
     st.divider()
@@ -252,10 +243,10 @@ Nanometern**.
         """
 ### Wo wir jetzt stehen
 
-Hitze reicht nicht, Licht reicht nicht, Warten hilft schon gar nicht. Nach
+Hitze reicht nicht, Licht reicht nicht und Warten hilft schon gar nicht. Nach
 diesem Kapitel sieht es aus, als sei die Sache erledigt.
 
-Sie ist es nicht. Es gibt einen Ausweg, und er besteht nicht darin, fester zu
+Sie ist es nicht. Es gibt einen Ausweg. Er besteht nicht darin, fester zu
 drücken.
 """
     )
@@ -267,22 +258,22 @@ drücken.
 C≡O 1077, C=O 799, O=O 498, H–H 436, N–H 391, C–C 346 kJ/mol.
 
 **Thermische Energie**: *RT* mit *R* = 8,314 J/(mol·K). Bei 293 K sind das
-2,44 kJ/mol. Verhältnis 945 / 2,44 ≈ 388. Die mittlere kinetische Energie
-eines Gasteilchens ist mit 3/2 *RT* etwas größer; für eine
+2,44 kJ/mol, das Verhältnis 945 / 2,44 ist also rund 388. Die mittlere
+kinetische Energie eines Gasteilchens ist mit 3/2 *RT* etwas größer, für eine
 Größenordnungsbetrachtung ändert das nichts.
 
 **Der Anteil energiereicher Moleküle** ist der Boltzmann-Faktor
 *f* = e^(−E<sub>A</sub>/*RT*). Bei 293 K und E<sub>A</sub> = 945 kJ/mol ergibt
-das 4 · 10⁻¹⁶⁹. Das ist eine Abschätzung der Größenordnung, keine
-Reaktionsgeschwindigkeit: Dafür bräuchte es zusätzlich Stoßfrequenz und
+das 4 · 10⁻¹⁶⁹. Das ist eine Abschätzung der Größenordnung und keine
+Reaktionsgeschwindigkeit. Dafür bräuchte es zusätzlich Stoßfrequenz und
 Orientierungsfaktor. Beide verschieben das Ergebnis um wenige Zehnerpotenzen
 und an der Aussage nichts.
 
 **Photonenenergie**: *E* = *hc*/λ. 945 kJ/mol entsprechen 9,79 eV pro Molekül
-und damit λ = 127 nm (Vakuum-UV).
+und damit λ = 127 nm, also Vakuum-UV.
 
-**1 eV = 96,485 kJ/mol.** Diese Umrechnung verbindet das Kapitel mit dem
-Block Quantenwelt, wo alles in eV gerechnet wird.
+**1 eV = 96,485 kJ/mol.** Diese Umrechnung verbindet das Kapitel mit dem Block
+Quantenwelt, wo alles in eV gerechnet wird.
 """,
     )
 
@@ -296,8 +287,8 @@ def _k3():
 
     st.markdown(
         """
-Im letzten Kapitel stand die Bindung wie eine Wand im Weg: 945 kJ/mol, und die
-Wärme im Raum liefert 2,4. Über die Wand kommt man nicht.
+Im letzten Kapitel stand die Bindung wie eine Wand im Weg. Sie verlangt
+945 kJ/mol, die Wärme im Raum liefert 2,4. Über die Wand kommt man nicht.
 
 Die Lösung ist deshalb keine größere Kraft, sondern ein **anderer Weg**. Ein
 Katalysator bricht die Bindung nicht auf. Er bietet dem Molekül eine Route an,
@@ -313,7 +304,7 @@ Stellen, an denen sich ein Stickstoffmolekül festsetzt. Dabei greifen die
 Eisenatome mit ihren eigenen Elektronen in die Dreifachbindung hinein und
 lockern sie.
 
-Was dann folgt, geschieht in vielen kleinen Schritten: Das N₂ zerfällt auf der
+Was dann folgt, geschieht in vielen kleinen Schritten. Das N₂ zerfällt auf der
 Oberfläche in zwei einzelne, festgehaltene Stickstoffatome. Wasserstoff setzt
 sich daneben. Dann wandert ein H-Atom zum N-Atom, dann das nächste, dann das
 dritte. Erst am Ende löst sich fertiges NH₃ ab.
@@ -322,8 +313,8 @@ Statt einer hohen Wand also eine Treppe mit lauter niedrigen Stufen. Am Ende
 ist derselbe Punkt erreicht, aber kein einzelner Schritt musste die volle Höhe
 schaffen.
 
-Aufgeklärt hat diesen Mechanismus Gerhard Ertl; er bekam dafür 2007 den
-Nobelpreis für Chemie – fast hundert Jahre, nachdem das Verfahren bereits
+Aufgeklärt hat diesen Mechanismus Gerhard Ertl. Er bekam dafür 2007 den
+Nobelpreis für Chemie, fast hundert Jahre nachdem das Verfahren schon
 industriell lief.
 """
         )
@@ -343,7 +334,7 @@ industriell lief.
         t_kat = st.slider("Temperatur [°C]", 20, 600, 450, 10, key="t_kat")
 
     if barriere > 800:
-        st.caption("**Ganz rechts:** keine Hilfe, blanke Gasphase – die "
+        st.caption("**Ganz rechts:** keine Hilfe, blanke Gasphase, also die "
                    "volle Dreifachbindung.")
     elif barriere > 250:
         st.caption("**Mitte:** ein mäßiger Katalysator.")
@@ -360,7 +351,7 @@ industriell lief.
         st.success(
             f"Gegenüber der ungebremsten Reaktion bei derselben Temperatur "
             f"ist das ein Vorteil von **{hoch(round(np.log10(mit / ohne)))}**. "
-            f"Der Katalysator liefert keine Energie. Er ändert nur den Weg – "
+            f"Der Katalysator liefert keine Energie. Er ändert nur den Weg, "
             f"und das genügt."
         )
 
@@ -375,11 +366,11 @@ industriell lief.
 Für technische Eisenkatalysatoren werden scheinbare Aktivierungsenergien in
 der Größenordnung 80 bis 200 kJ/mol berichtet, je nach Katalysator,
 Promotoren und Bedingungen. Die 100 kJ/mol dieser App sind ein runder
-Mittelwert, kein Tabellenwert.
+Mittelwert und kein Tabellenwert.
 
 Der Vergleichsfaktor oben ist das Verhältnis zweier Boltzmann-Faktoren,
-e^(−E₁/RT) / e^(−E₂/RT). Er zeigt, wie stark eine gesenkte Hürde durchschlägt,
-und nicht, um wie viel eine reale Anlage schneller wird.
+e^(−E₁/RT) / e^(−E₂/RT). Er zeigt, wie stark eine gesenkte Hürde durchschlägt. Er sagt nicht,
+um wie viel eine reale Anlage schneller wird.
 """,
     )
 
@@ -387,136 +378,35 @@ und nicht, um wie viel eine reale Anlage schneller wird.
 # ==================================================================
 # Kapitel 4
 # ==================================================================
-@st.cache_data(show_spinner=False)
-def _ausbeute_karte():
-    """Landkarte für das Reaktor-Spiel. Einmal rechnen, dann liegt sie."""
-    Ts = np.linspace(250, 620, 60)
-    Ps = np.linspace(10, 400, 60)
-    Z = np.array([[ch.nh3_ausbeute(T, P) for T in Ts] for P in Ps])
-    OK = np.array([[1.0 if ch.bewertung(T, P)[0] else 0.0 for T in Ts]
-                   for P in Ps])
-    return Ts, Ps, Z, OK
-
-
 def _k4():
-    kapitel_kopf(4, N_KAP, "Der Reaktor",
-                 "Zwei Anforderungen, die in entgegengesetzte Richtungen "
-                 "ziehen.")
+    kapitel_kopf(4, N_KAP, "Haber und Bosch",
+                 "Zwei Personen, zwei Probleme und eine Erfindung mit zwei "
+                 "Gesichtern.")
 
     st.markdown(
         """
-Der Katalysator arbeitet umso schneller, je wärmer es ist. So weit, so gut.
+### Was Fritz Haber gemacht hat
 
-Nur hat die Reaktion eine zweite Eigenschaft: Sie **setzt Energie frei**. Und
-Reaktionen, die Wärme abgeben, laufen bei Hitze ungern zu Ende. Je heißer der
-Reaktor, desto weniger Ammoniak steht am Schluss darin – ganz gleich, wie
-lange man wartet.
+Haber war Chemiker in Karlsruhe. Er hat als Erster gezeigt, dass sich Ammoniak
+aus Luftstickstoff und Wasserstoff wirklich herstellen lässt. Sein Aufbau war
+ein Tischgerät: ein kleines Rohr, ein Katalysator aus dem seltenen Metall
+Osmium, rund 500 °C und ein Druck von etwa 175 bar. Im Juli 1909 tropfte
+daraus zum ersten Mal flüssiges Ammoniak.
+
+Es war wenig, aber es genügte als Beweis. Die Bedingungen dafür kennst du aus
+den letzten beiden Kapiteln: heiß genug, damit es schnell geht, dazu unter
+hohem Druck, damit trotz der Hitze etwas übrig bleibt. Das billige Eisen, mit
+dem heute jede Anlage arbeitet, fand erst danach Alwin Mittasch bei der BASF,
+indem er systematisch tausende Stoffe durchprobierte.
 """
     )
 
-    p_fest = st.slider("Druck im Reaktor [bar]", 10, 400, 200, 10,
-                       key="p_schere")
-    Ts = np.linspace(250, 620, 200)
-    ausb = [ch.nh3_ausbeute(T, p_fest) for T in Ts]
-    tempo = [ch.relative_geschwindigkeit(T) for T in Ts]
-
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(7, 4.6), sharex=True)
-    ax1.plot(Ts, ausb, color=BLAU, lw=2.5)
-    ax1.set_ylabel("Ausbeute [%]")
-    ax1.set_title("Wie viel am Ende drin ist – je kälter, desto besser",
-                  fontsize=10, color=DUNKELGRAU, loc="left")
-    ax2.semilogy(Ts, tempo, color=ORANGE, lw=2.5)
-    ax2.set_ylabel("Tempo (relativ)")
-    ax2.set_xlabel("Temperatur [°C]")
-    ax2.set_title("Wie schnell es geht – je heißer, desto besser",
-                  fontsize=10, color=DUNKELGRAU, loc="left")
-    for ax in (ax1, ax2):
-        ax.axvline(ch.BETRIEB_T, color=GRUEN, ls="--", lw=1.4)
-        ax.spines[["top", "right"]].set_visible(False)
-    ax1.text(ch.BETRIEB_T + 8, max(ausb) * 0.82, "echte Anlagen",
-             color=GRUEN, fontsize=9)
-    fig.tight_layout()
-    zeige(fig)
-
-    st.markdown(
-        "Die grüne Linie liegt dort, wo beide Kurven gerade noch erträglich "
-        "sind. Sie ist kein chemisches Optimum, sondern ein **Kompromiss**."
-    )
-
-    # -------------------------------------------------- Das Spiel
-    st.divider()
-    st.subheader("Bau deinen eigenen Reaktor")
-    st.markdown(
-        "Drei Bedingungen musst du gleichzeitig erfüllen: genug Ausbeute, "
-        "genug Tempo, und die Anlage darf nicht kaputtgehen."
-    )
-
-    g1, g2 = st.columns(2)
-    with g1:
-        T_spiel = st.slider("Temperatur [°C]", 250, 620, 300, 10,
-                            key="t_spiel")
-    with g2:
-        P_spiel = st.slider("Druck [bar]", 10, 400, 50, 10, key="p_spiel")
-
-    a_spiel = ch.nh3_ausbeute(T_spiel, P_spiel)
-    v_spiel = ch.relative_geschwindigkeit(T_spiel)
-    geschafft, pruefungen = ch.bewertung(T_spiel, P_spiel)
-
-    m1, m2 = st.columns(2)
-    m1.metric("Ammoniak im Gleichgewicht", f"{dez(a_spiel)} %")
-    m2.metric("Tempo gegenüber echten Anlagen",
-              f"{dez(v_spiel, 2)} ×" if v_spiel >= 0.01
-              else f"{v_spiel:.0e} ×")
-
-    for name, erfuellt, text in pruefungen:
-        st.markdown(f"{'✅' if erfuellt else '❌'} **{name}** – {text}")
-
-    for art, text in ch.reaktor_check(T_spiel, P_spiel):
-        {"fehler": st.error, "warnung": st.warning, "ok": st.info}[art](text)
-
-    if geschafft:
-        st.success(
-            f"**Geschafft.** Deine Anlage läuft bei {T_spiel} °C und "
-            f"{P_spiel} bar. Echte Ammoniakanlagen arbeiten bei rund "
-            f"{ch.BETRIEB_T:.0f} °C und {ch.BETRIEB_P:.0f} bar. Wer in der "
-            "Nähe landet, hat dieselbe Abwägung getroffen wie Carl Bosch "
-            "1913 – nur schneller."
-        )
-
-    Ts_k, Ps_k, Z, OK = _ausbeute_karte()
-    fig, ax = neue_figur(4.0)
-    bild = ax.pcolormesh(Ts_k, Ps_k, Z, cmap="Blues", shading="auto",
-                         vmin=0, vmax=80)
-    ax.contour(Ts_k, Ps_k, OK, levels=[0.5], colors=[GRUEN], linewidths=2.2)
-    ax.scatter([ch.BETRIEB_T], [ch.BETRIEB_P], s=150, marker="*",
-               color=GRUEN, edgecolor="white", zorder=6, linewidth=1.2)
-    ax.annotate("echte Anlagen", (ch.BETRIEB_T, ch.BETRIEB_P),
-                xytext=(-4, 16), textcoords="offset points",
-                ha="right", color=GRUEN, fontsize=9, fontweight="bold")
-    ax.scatter([T_spiel], [P_spiel], s=130, marker="X",
-               color=ROT, edgecolor="white", zorder=7, linewidth=1.2)
-    ax.annotate("du", (T_spiel, P_spiel), xytext=(8, -16),
-                textcoords="offset points", color=ROT, fontsize=9,
-                fontweight="bold")
-    ax.set_xlabel("Temperatur [°C]")
-    ax.set_ylabel("Druck [bar]")
-    fig.colorbar(bild, ax=ax, label="Ammoniak [%]")
-    fig.tight_layout()
-    zeige(fig)
-    st.caption(
-        "Dunkelblau heißt viel Ammoniak. Innerhalb der grünen Linie sind alle "
-        "drei Bedingungen erfüllt. Das begehbare Gebiet ist ein schmaler Keil "
-        "– und er liegt ausgerechnet dort, wo die Ausbeute mäßig ist."
-    )
-
-    # -------------------------------------------------- Bosch
-    st.divider()
     st.markdown(
         """
-### Warum das Verfahren zwei Namen trägt
+### Was Carl Bosch gemacht hat
 
-Haber hatte die Reaktion. Bosch hatte das Problem, sie in eine Fabrik zu bauen
-– und dieses Problem war nicht chemischer, sondern **stählerner** Natur.
+Bosch arbeitete bei der BASF und bekam die Aufgabe, aus dem Tischgerät eine
+Fabrik zu machen. Sein Problem war nicht chemischer, sondern stählerner Natur.
 
 Heißer Wasserstoff unter 200 bar frisst sich in Stahl hinein. Er dringt in das
 Metall ein, reagiert dort mit dem Kohlenstoff, der den Stahl hart macht, und
@@ -525,8 +415,9 @@ bis Tage, dann platzten sie.
 
 Boschs Lösung war eine doppelte Wand: innen ein Rohr aus weichem, praktisch
 kohlenstofffreiem Eisen, das dem Wasserstoff nichts zu bieten hat, außen ein
-Druckmantel aus Stahl, der die Last trägt. Dazwischen kleine Bohrungen, durch
-die durchgewanderter Wasserstoff entweichen kann.
+Druckmantel aus Stahl, der die Last trägt. Dazwischen sitzen kleine Bohrungen,
+durch die durchgewanderter Wasserstoff entweichen kann. 1913 ging die erste
+Anlage in Oppau in Betrieb.
 """
     )
     merksatz(
@@ -535,28 +426,101 @@ die durchgewanderter Wasserstoff entweichen kann.
         "Chemiebüchern vor."
     )
 
-    fachkasten(
-        "Modell und Zahlen dieses Kapitels",
+    st.divider()
+    st.markdown(
         """
-**Gleichgewicht.** Berechnet aus ΔH° = −91,8 kJ/mol und ΔS° = −198,1
-J/(mol·K) bei 298 K, mit einer Temperaturkorrektur über ΔC<sub>p</sub> ≈ −45
-J/(mol·K), daraus *K*(T) = exp(−ΔG/RT). Gelöst wird das Massenwirkungsgesetz
-für ein stöchiometrisches Gemisch (1 : 3).
+### Brot
 
-Ein rein ideales Gasmodell liegt bei hohen Drücken systematisch zu niedrig.
-Deshalb steckt ein empirischer Realgas-Zuschlag exp(0,00199 · *p*) darin. Er
-wurde gegen die klassische Messtabelle von Larson & Dodge (1923/24) angepasst
-und trifft sie zwischen 10 und 600 bar und 200 bis 600 °C auf etwa einen
-Prozentpunkt.
+Aus Ammoniak wird Dünger. Die Weltbevölkerung ist seit 1900 von rund
+1,6 auf über 8 Milliarden Menschen gewachsen. Ohne synthetischen
+Stickstoff wäre das nicht möglich gewesen. Etwa die Hälfte des Stickstoffs in
+unserem Körper ist irgendwann durch eine solche Anlage gelaufen.
 
-**Geschwindigkeit.** Reine Arrhenius-Abschätzung *v* ∝ exp(−E<sub>A</sub>/RT)
-mit E<sub>A</sub> = 100 kJ/mol, normiert auf 450 °C. Sie bildet die
-Temperaturabhängigkeit richtig ab, sagt aber nichts über absolute Durchsätze.
+Kein anderes chemisches Verfahren hat so viele Leben ermöglicht.
+"""
+    )
 
-**Betriebspunkt.** Moderne Anlagen fahren typischerweise 400–500 °C und
-150–300 bar; Boschs erste Anlage in Oppau lief bei etwa 200 bar. Der Ammoniak
+    st.markdown(
+        """
+### Sprengstoff
+
+Aus Ammoniak wird über Salpetersäure aber auch Sprengstoff. Es gibt nicht zwei
+Wege, einen guten und einen schlechten. Es ist derselbe Weg bis kurz vor
+Schluss.
+
+Vor 1914 bezog das Deutsche Reich seinen Salpeter aus Chile. Mit der
+britischen Seeblockade war dieser Weg zu. Nach gängiger Einschätzung wäre
+der Munitionsnachschub binnen etwa eines Jahres zu Ende gewesen. Die
+Ammoniakanlagen der BASF ersetzten diesen Import. Der Erste Weltkrieg konnte
+auch deshalb jahrelang weitergeführt werden.
+"""
+    )
+
+    st.markdown(
+        """
+### Giftgas
+
+Haber blieb dabei nicht Zulieferer. Er baute den deutschen Gaskrieg selbst
+auf, wählte das Chlorgas aus, organisierte die Stahlflaschen und die Einheiten
+an der Front und war beim ersten großen Angriff bei Ypern im April 1915
+persönlich anwesend. Tausende Soldaten starben oder wurden dauerhaft
+geschädigt.
+
+Haber verteidigte das öffentlich. Seine bekannteste Formulierung lautet, im
+Frieden gehöre der Wissenschaftler der Menschheit, im Krieg dem Vaterland.
+Seine Frau Clara Immerwahr, selbst promovierte Chemikerin, nahm sich wenige
+Tage nach Ypern das Leben.
+
+Er gehörte außerdem zu den Unterzeichnern des Manifests der 93, mit dem im
+Oktober 1914 prominente deutsche Wissenschaftler und Künstler die deutsche
+Kriegführung öffentlich rechtfertigten. Wissenschaftliche Autorität wurde dort
+gezielt als Argument eingesetzt.
+"""
+    )
+
+    st.markdown(
+        """
+### Wie es ausging
+
+1919 erhielt Haber den Nobelpreis für Chemie für die Ammoniaksynthese,
+rückwirkend für das Jahr 1918. Die Entscheidung war international heftig
+umstritten, weil für viele ein Kriegsverbrecher ausgezeichnet wurde. Bosch
+bekam 1931 ebenfalls einen Nobelpreis, ausdrücklich für die Hochdrucktechnik.
+
+1933 verlor Haber als Jude seine Stellung und musste Deutschland verlassen.
+Er starb 1934 im Exil in Basel. In den Instituten, die er mit aufgebaut hatte,
+wurde später ein Schädlingsbekämpfungsmittel weiterentwickelt, das die
+Nationalsozialisten in den Vernichtungslagern einsetzten. Mehrere Angehörige
+seiner Familie wurden dort ermordet.
+"""
+    )
+
+    merksatz(
+        "Dieselbe Reaktion, dieselbe Anlage, dieselbe Person. Deshalb steht "
+        "dieser Fall in einem interdisziplinären Arbeitskreis und nicht nur "
+        "im Chemiebuch."
+    )
+
+    fachkasten(
+        "Belege und Zahlen",
+        """
+**Betriebsbedingungen.** Moderne Anlagen fahren typischerweise 400 bis 500 °C
+und 150 bis 300 bar. Das ist ein Kompromiss: kalt wäre die Ausbeute besser,
+weil die Reaktion Wärme abgibt, aber der Katalysator zu langsam. Der Ammoniak
 wird laufend auskondensiert und die nicht umgesetzten Gase im Kreis
-zurückgeführt – deshalb ist die niedrige Gleichgewichtsausbeute pro Durchgang
-verkraftbar.
+zurückgeführt, deshalb ist die niedrige Ausbeute pro Durchgang verkraftbar.
+
+**Bevölkerung und Ernährung.** Smil, V. (2001): *Enriching the Earth*, MIT
+Press, ist das Standardwerk zur Wirkung des Verfahrens auf die
+Weltbevölkerung. Der Anteil von 48 Prozent stammt aus *Green ammonia
+synthesis*, Nature Synthesis 2 (2023).
+
+**Haber-Biographie.** Szöllösi-Janze, M. (1998): *Fritz Haber 1868 bis 1934.
+Eine Biographie*, München: Beck. Dort auch die Belegstellen zu Ypern, zum
+Manifest der 93 und zur Rolle der BASF-Anlagen im Ersten Weltkrieg.
+
+**Nobelpreis.** Der Chemiepreis für 1918 wurde 1919 vergeben und im Juni 1920
+überreicht. Die Proteste dagegen sind in den Akten des Nobelkomitees
+dokumentiert.
 """,
     )

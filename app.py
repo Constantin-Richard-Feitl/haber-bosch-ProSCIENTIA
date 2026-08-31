@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Vom Dünger zur Quantenwelt
-Arbeitskreis Pro Scientia – wie Wissenschaft unser Weltbild transformiert
+Arbeitskreis Pro Scientia, wie Wissenschaft unser Weltbild transformiert
 
 Eine App, zwei Blöcke, ein Link.
 
@@ -9,8 +9,8 @@ Start lokal:
     python -m streamlit run app.py
 
 Braucht streamlit, numpy und matplotlib (siehe requirements.txt). Die
-Quantenchemie in hf_pure.py läuft mit reinem numpy – kein Compiler, keine
-Chemiebibliothek.
+Quantenchemie in hf_pure.py läuft mit reinem numpy, also ohne Compiler und
+ohne Chemiebibliothek.
 """
 
 import streamlit as st
@@ -67,15 +67,15 @@ def startseite():
     st.markdown(
         """
 Zwei Umbrüche der Naturwissenschaft, die auf ganz verschiedene Weise
-transformativ waren – und beide zum Anfassen.
+transformativ waren. Beide sind hier zum Anfassen.
 
-**Haber-Bosch** veränderte die Welt, bevor irgendjemand verstanden hatte,
-warum es funktioniert: vier Jahre vom Labor in die Fabrik, die Erklärung kam
-fast hundert Jahre später hinterher.
+**Haber und Bosch** veränderten die Welt, bevor irgendjemand verstanden hatte,
+warum ihr Verfahren funktioniert. Vier Jahre lagen zwischen Labor und Fabrik,
+die Erklärung kam fast hundert Jahre später hinterher.
 
 **Die Quantenmechanik** veränderte zuerst nur, wie wir denken. Sie brauchte
-Jahrzehnte, bis daraus Technik wurde – und heute rechnet sie auf einem
-Laptop Moleküle durch, die niemand gemessen hat.
+Jahrzehnte, bis daraus Technik wurde. Heute rechnet sie auf einem Laptop
+Moleküle durch, die niemand gemessen hat.
 """
     )
 
@@ -88,7 +88,8 @@ Laptop Moleküle durch, die niemand gemessen hat.
 **Warum die Luft voller Dünger ist und trotzdem niemand herankommt.**
 
 Du schätzt, wie fest eine chemische Bindung hält, findest heraus, warum Hitze
-allein nicht reicht, und baust am Ende deinen eigenen Ammoniakreaktor.
+allein nicht reicht. Am Ende siehst du, was zwei Menschen daraus gemacht
+haben.
 
 *Vier Kapitel.*
 """
@@ -97,10 +98,10 @@ allein nicht reicht, und baust am Ende deinen eigenen Ammoniakreaktor.
         st.markdown(
             """
 #### Block 2 · Die Quantenwelt
-**Ein Teilchen in einem Kasten, und warum daran alles hängt.**
+**Ein Teilchen in einem Kasten und warum daran alles hängt.**
 
 Von der Gitarrensaite zur Energieleiter, von der Energieleiter zur Farbe
-deines Fernsehers – und zum Schluss rechnest du selbst ein Molekül durch.
+deines Fernsehers. Zum Schluss rechnest du selbst ein Molekül durch.
 
 *Fünf Kapitel.*
 """
@@ -112,10 +113,10 @@ deines Fernsehers – und zum Schluss rechnest du selbst ein Molekül durch.
 ### Wie das hier funktioniert
 
 **Links in der Leiste** wählst du Block und Kapitel. Auf dem Handy ist sie
-eingeklappt – tipp oben links auf das Pfeil-Symbol **»**.
+eingeklappt, tipp dann oben links auf das Pfeil-Symbol **»**.
 
 **Erst raten, dann auflösen.** An einigen Stellen wirst du gebeten zu tippen,
-bevor etwas aufgelöst wird. Das ist kein Test, und niemand sieht dein
+bevor etwas aufgelöst wird. Das ist kein Test und niemand sieht dein
 Ergebnis. Es funktioniert nur besser so.
 
 **Keine Zahl steht allein.** Neben jeder Zahl steht ein Vergleich, ein Bild
@@ -128,7 +129,7 @@ Neuladen der Seite setzt alles zurück.
     )
 
     st.caption(
-        "Arbeitskreis „Vom Dünger zur Quantenwelt – wie Wissenschaft unser "
+        "Arbeitskreis „Vom Dünger zur Quantenwelt, wie Wissenschaft unser "
         "Weltbild transformiert“ · Constantin Richard Feitl & Dato Tsomaia"
     )
 
@@ -138,7 +139,7 @@ Neuladen der Seite setzt alles zurück.
 # ==================================================================
 GLOSSAR = [
     ("Mol",
-     "Eine Stückzahl, so wie Dutzend – nur größer. Ein Mol sind rund "
+     "Eine Stückzahl, so wie Dutzend, nur größer. Ein Mol sind rund "
      "600 000 000 000 000 000 000 000 Teilchen. In der Chemie wird in dieser "
      "Packungsgröße gerechnet, weil einzelne Moleküle zu klein zum Wiegen "
      "sind."),
@@ -148,63 +149,67 @@ GLOSSAR = [
      "20 °C rund 2,4 kJ/mol. Alles darüber ist viel."),
     ("eV (Elektronenvolt)",
      "Dieselbe Idee, aber pro einzelnem Teilchen statt pro Mol. Praktisch, "
-     "wenn man über Elektronen und Licht spricht. 1 eV = 96,5 kJ/mol; "
+     "wenn man über Elektronen und Licht spricht. 1 eV sind 96,5 kJ/mol, "
      "sichtbares Licht liegt bei 1,8 bis 3,1 eV."),
     ("Bindungsenergie",
      "Der Aufwand, um eine chemische Bindung zu zerreißen. Je größer, desto "
      "stabiler das Molekül. N≡N liegt mit 945 kJ/mol ganz oben."),
     ("Aktivierungsenergie",
-     "Die Hürde auf dem Weg zur Reaktion – nicht das Ziel, sondern der Berg "
-     "davor. Auch eine Reaktion, die insgesamt Energie freisetzt, kommt ohne "
-     "genug Anlauf nicht in Gang."),
+     "Die Hürde auf dem Weg zur Reaktion, also nicht das Ziel, sondern der "
+     "Berg davor. Auch eine Reaktion, die insgesamt Energie freisetzt, kommt "
+     "ohne genug Anlauf nicht in Gang."),
     ("Katalysator",
      "Ein Stoff, der eine Reaktion beschleunigt, ohne selbst verbraucht zu "
      "werden. Er liefert keine Energie, sondern bietet einen Weg an, auf dem "
      "die Hürde niedriger ist."),
-    ("Chemisches Gleichgewicht",
-     "Der Zustand, in dem Hin- und Rückreaktion gleich schnell laufen und "
-     "sich die Mengen nicht mehr ändern. Er sagt, wie viel am Ende "
-     "herauskommt – nicht, wie lange es dauert."),
+    ("Ausbeute",
+     "Wie viel Ammoniak am Ende im Reaktor steht, wenn sich nichts mehr "
+     "ändert. Sie sagt nichts darüber, wie lange es bis dahin dauert."),
     ("Wellenfunktion ψ",
      "Kein Stoff, der wackelt, sondern eine Rechengröße. Wo ihr Quadrat groß "
-     "ist, findet man das Teilchen wahrscheinlich; wo es null ist, nie."),
+     "ist, findet man das Teilchen wahrscheinlich, wo es null ist, nie."),
     ("Quantenzahl n",
-     "Eine Hausnummer, keine Messgröße. Sie zählt durch, welcher der "
+     "Eine Hausnummer und keine Messgröße. Sie zählt durch, welcher der "
      "erlaubten Zustände gemeint ist. Immer eine ganze Zahl."),
     ("Nullpunktsenergie",
      "Die Mindestenergie eines eingesperrten Teilchens. Ein Elektron kann "
-     "nicht stillstehen – deshalb stürzt es nicht in den Atomkern."),
+     "nicht stillstehen, deshalb stürzt es nicht in den Atomkern."),
     ("Ångström",
      "Ein Zehnmilliardstel Meter, also 0,1 Nanometer. Ungefähr die Größe "
-     "eines Atoms; Bindungslängen liegen bei ein bis zwei Ångström."),
+     "eines Atoms, Bindungslängen liegen bei ein bis zwei Ångström."),
     ("Hartree-Fock",
-     "Ein Rechenverfahren, das jedes Elektron nur den Durchschnitt aller "
-     "anderen spüren lässt. Schnell und ehrlich grob – man weiß genau, was "
-     "weggelassen wurde."),
+     "Der Fachname für das Rechenverfahren in Block 2, Kapitel 5. Es lässt "
+     "jedes Elektron nur den Durchschnitt aller anderen spüren. Schnell und "
+     "ehrlich grob, denn man weiß genau, was weggelassen wurde."),
 ]
 
 QUELLEN = """
 **Chemie und Verfahren**
 
-* Larson, A. T. & Dodge, R. L. (1923/24): Gleichgewichtsmessungen zur
-  Ammoniaksynthese. Das Modell dieser App ist gegen diese klassische Tabelle
-  angepasst.
-* *Green ammonia synthesis*, Editorial, **Nature Synthesis** 2 (2023).
-  Quelle für 1–2 % des Weltenergiebedarfs und für die 48 % der
+* *Green ammonia synthesis*, Editorial, **Nature Synthesis** 2 (2023). Quelle
+  für 1 bis 2 Prozent des Weltenergiebedarfs und für die 48 Prozent der
   Weltbevölkerung, die von synthetisch gedüngter Nahrung leben.
   <https://www.nature.com/articles/s44160-023-00362-y>
+* Smil, V. (2001): *Enriching the Earth.* MIT Press. Standardwerk zur Wirkung
+  des Verfahrens auf die Weltbevölkerung.
 * Ertl, G.: Nobelpreis für Chemie 2007 für die Aufklärung chemischer Vorgänge
   auf Oberflächen, am Beispiel der Ammoniaksynthese.
+
+**Geschichte**
+
+* Szöllösi-Janze, M. (1998): *Fritz Haber 1868 bis 1934. Eine Biographie.*
+  München: Beck. Belegstellen zu Ypern, zum Manifest der 93 und zur Rolle der
+  BASF-Anlagen im Ersten Weltkrieg.
 
 **Quantenmechanik und Quantenchemie**
 
 * Schrödinger, E. (1926): *Quantisierung als Eigenwertproblem.* Annalen der
   Physik 79.
 * `hf_pure.py` ist eine eigenständige Hartree-Fock-Implementierung in reinem
-  numpy: STO-3G-Basissatz nach Hehre, Stewart & Pople (1969),
-  Gauß-Integrale über das McMurchie-Davidson-Schema.
-* Spektroskopische Vergleichswerte (Bindungslängen und Taltiefen
-  *D*<sub>e</sub>) nach Huber & Herzberg, *Constants of Diatomic Molecules*.
+  numpy: STO-3G-Basissatz nach Hehre, Stewart und Pople (1969), Gauß-Integrale
+  über das McMurchie-Davidson-Schema.
+* Spektroskopische Vergleichswerte, also Bindungslängen und Taltiefen
+  *D*<sub>e</sub>, nach Huber und Herzberg, *Constants of Diatomic Molecules*.
 
 Alle Rechenergebnisse dieser App entstehen im Moment des Knopfdrucks.
 """

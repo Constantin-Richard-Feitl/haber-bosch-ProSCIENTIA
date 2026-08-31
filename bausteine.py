@@ -132,15 +132,16 @@ def wellenlaenge_nm(kJ_pro_mol):
 # Bänder statt Einzelwerte, damit die Einordnung nie danebengreift.
 EV_BAENDER = [
     (0.05, "weniger als die Wärme, die in diesem Raum ohnehin herumfliegt"),
-    (1.6, "Infrarot – Wärmestrahlung, unterhalb dessen, was dein Auge sieht"),
+    (1.6, "Infrarot, also Wärmestrahlung unterhalb dessen, was dein "
+          "Auge noch sieht"),
     (2.0, "rotes Licht"),
     (2.6, "grünes bis gelbes Licht"),
     (3.1, "blaues bis violettes Licht"),
-    (5.0, "Ultraviolett – die Strahlung, die Sonnenbrand macht"),
+    (5.0, "Ultraviolett, die Strahlung, die Sonnenbrand macht"),
     (10.0, "energiereiches Ultraviolett; in dieser Gegend liegt auch die "
            "Dreifachbindung im Stickstoff mit 9,8 eV"),
     (float("inf"),
-     "genug, um Atome auseinanderzureißen – ein Wasserstoffatom braucht "
+     "genug, um Atome auseinanderzureißen. Ein Wasserstoffatom braucht "
      "dafür 13,6 eV"),
 ]
 
@@ -217,8 +218,8 @@ def seltenheit_anzeigen(anteil, kontext=""):
     if n > 80:
         st.error(
             f"**Für {hoch(round(n))} gibt es keinen Vergleich mehr.** Im "
-            f"gesamten sichtbaren Universum gibt es rund {hoch(80)} Atome – "
-            "und selbst das ist gegen diese Zahl verschwindend klein.\n\n"
+            f"gesamten sichtbaren Universum gibt es rund {hoch(80)} Atome. "
+            "Selbst das ist gegen diese Zahl verschwindend klein.\n\n"
             "Praktisch heißt das nicht *selten*. Es heißt *nie*."
         )
     else:
@@ -288,7 +289,7 @@ def schaetzfrage(key, frage, minimum, maximum, start, schritt, echt,
     elif daneben <= 3 * toleranz_gut:
         st.info("Richtige Größenordnung, aber daneben.")
     else:
-        st.warning("Deutlich daneben – und genau darum geht es hier.")
+        st.warning("Deutlich daneben. Genau darum geht es hier.")
 
     if aufloesung_text:
         st.markdown(aufloesung_text)
@@ -329,7 +330,7 @@ def code_feld(key, code, hinweis=None, hoehe=320, extras=None,
         st.session_state[speicher] = code
 
     eingabe = st.text_area(
-        "Python-Code – du darfst alles ändern",
+        "Python-Code, du darfst alles ändern",
         value=st.session_state[speicher],
         height=hoehe,
         key=f"area_{key}",
@@ -352,18 +353,18 @@ def code_feld(key, code, hinweis=None, hoehe=320, extras=None,
         umgebung.update(extras)
     try:
         with contextlib.redirect_stdout(puffer):
-            exec(eingabe, umgebung)   # noqa: S102 – bewusst, siehe README
+            exec(eingabe, umgebung)   # noqa: S102, bewusst, siehe README
         ausgabe = puffer.getvalue()
         if ausgabe.strip():
             st.code(ausgabe, language=None)
         else:
-            st.info("Kein `print()` im Code – deshalb keine Ausgabe.")
+            st.info("Kein `print()` im Code, deshalb keine Ausgabe.")
         fig = plt.gcf()
         if fig.get_axes():
             st.pyplot(fig)
         plt.close("all")
     except Exception:
         zeilen = traceback.format_exc().splitlines()
-        st.error("Da ist etwas schiefgegangen. Das ist normal – "
+        st.error("Da ist etwas schiefgegangen. Das ist normal. Einfach "
                  "ändern und nochmal.")
         st.code(zeilen[-1], language=None)
