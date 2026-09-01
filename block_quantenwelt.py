@@ -759,7 +759,7 @@ zwei einzelne Atome. Es gibt nichts, was sich aufheben könnte.
 #   Verfügbar sind H, C, N und O.
 #   HARTREE_KJ rechnet Hartree in kJ/mol um.
 
-# Beispiel: die Bindungslänge von Kohlenmonoxid suchen
+# Beispiel 1: den Kernabstand im Kohlenmonoxid suchen
 print("Abstand    Energie")
 bester, beste_E = None, 0
 for abstand in [0.9, 1.0, 1.1, 1.13, 1.2, 1.3]:
@@ -770,15 +770,28 @@ for abstand in [0.9, 1.0, 1.1, 1.13, 1.2, 1.3]:
 
 print()
 print(f"Tiefster Punkt bei {bester} Ångström.")
-print("Im Labor gemessen: 1.128 Ångström.")
+print("Gemessen im Kohlenmonoxid: 1.128 Ångström.")
+print("Achtung, der Vergleichswert gilt nur für dieses Molekül.")
 
-# Zum Weiterspielen:
-# Wasser bauen, also O in der Mitte und zwei H im Winkel von 104.5 Grad.
-# Oder ein Atom weit wegschieben und zusehen, wie die Bindung verschwindet.
+# Beispiel 2: Wasser bauen. Sauerstoff in den Ursprung, die beiden
+# Wasserstoffe 0.958 Ångström entfernt, im Winkel von 104.5 Grad.
+wasser = [("O", (0.0000, 0.0, 0.0000)),
+          ("H", (0.7578, 0.0, 0.5867)),
+          ("H", (-0.7578, 0.0, 0.5867))]
+print()
+print(f"Wasser: {qm_energie(wasser):+.4f} Hartree")
+
+# Zum Weiterspielen: Schieb ein H weiter weg und sieh zu, wie die
+# Bindung verschwindet. Oder ändere den Winkel.
+#
+# Gemessene Kernabstände zum Vergleichen, in Ångström:
+#   H2 0.741    N2 1.098    CO 1.128    O-H im Wasser 0.958
+# Sauerstoff O2 braucht spin=2, sonst rechnet das Verfahren am
+# Grundzustand vorbei. Gemessen sind dort 1.208 Ångström.
 ''',
         hinweis="Ändere Elemente, Positionen und Abstände. Kaputtmachen "
                 "kannst du nichts, *Zurücksetzen* holt das Original zurück.",
-        hoehe=380,
+        hoehe=520,
         extras={
             "qm_energie": lambda atome, spin=0: hf_pure.energie(
                 list(atome), spin=spin),

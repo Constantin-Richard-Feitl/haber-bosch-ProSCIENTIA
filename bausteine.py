@@ -325,15 +325,18 @@ def code_feld(key, code, hinweis=None, hoehe=320, extras=None,
     if hinweis:
         st.caption(hinweis)
 
-    speicher = f"code_{key}"
-    if speicher not in st.session_state:
-        st.session_state[speicher] = code
+    # Der Zustand des Textfelds liegt unter seinem eigenen Schlüssel. Sobald
+    # der gesetzt ist, ignoriert Streamlit ein übergebenes value. Deshalb
+    # wird beim Zurücksetzen dieser Schlüssel selbst überschrieben, und zwar
+    # vor dem Erzeugen des Widgets. Nachher wäre es ein Fehler.
+    feld = f"area_{key}"
+    if st.session_state.pop(f"neuladen_{key}", False) or feld not in st.session_state:
+        st.session_state[feld] = code
 
     eingabe = st.text_area(
         "Python-Code, du darfst alles ändern",
-        value=st.session_state[speicher],
         height=hoehe,
-        key=f"area_{key}",
+        key=feld,
         label_visibility="collapsed",
     )
 
@@ -341,7 +344,7 @@ def code_feld(key, code, hinweis=None, hoehe=320, extras=None,
     los = c1.button("▶ Ausführen", key=f"run_{key}", type="primary",
                     use_container_width=True)
     if c2.button("Zurücksetzen", key=f"reset_{key}", use_container_width=True):
-        st.session_state[speicher] = code
+        st.session_state[f"neuladen_{key}"] = True
         st.rerun()
 
     if not los:

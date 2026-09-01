@@ -464,7 +464,11 @@ wirklich jeden selbst auf den Knopf drücken.
 * Das gilt in jedem Fach, das hier im Raum sitzt.
 
 **Codefeld:** Wer will, kann jetzt selbst Moleküle bauen. Ändert Elemente und
-Abstände. Kaputtmachen kann man nichts.
+Abstände. Kaputtmachen kann man nichts, *Zurücksetzen* holt das Original
+zurück. Im Feld stehen zwei fertige Beispiele: der Kernabstand im Kohlenmonoxid und
+ein gebautes Wassermolekül. Der gedruckte Messwert gilt nur für das
+Kohlenmonoxid. Wer die Elemente tauscht, braucht einen anderen
+Vergleichswert, ein paar stehen als Kommentar im Feld.
 
 ---
 
