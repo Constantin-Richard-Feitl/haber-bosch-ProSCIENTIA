@@ -466,9 +466,9 @@ wirklich jeden selbst auf den Knopf drücken.
 **Codefeld:** Wer will, kann jetzt selbst Moleküle bauen. Ändert Elemente und
 Abstände. Kaputtmachen kann man nichts, *Zurücksetzen* holt das Original
 zurück. Im Feld stehen zwei fertige Beispiele: der Kernabstand im Kohlenmonoxid und
-ein gebautes Wassermolekül. Der gedruckte Messwert gilt nur für das
-Kohlenmonoxid. Wer die Elemente tauscht, braucht einen anderen
-Vergleichswert, ein paar stehen als Kommentar im Feld.
+ein Wassermolekül, bei dem eine Bindung gedehnt wird. Beide rechnen in
+kJ/mol, also im selben Maßstab wie Block 1. Zur Verfügung stehen die
+Elemente H, C, N und O, daraus lässt sich bauen, was die Runde will.
 
 ---
 
