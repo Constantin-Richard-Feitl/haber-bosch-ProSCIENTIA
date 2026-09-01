@@ -752,18 +752,11 @@ zwei einzelne Atome. Es gibt nichts, was sich aufheben könnte.
     st.divider()
     code_feld(
         "qm",
-        '''# Die Quantenchemie steht dir hier komplett zur Verfügung.
-#
-#   qm_energie(atome, spin=0)  ->  Gesamtenergie in Hartree
-#   atome: Liste aus (Element, (x, y, z)) in Ångström
-#   Verfügbar sind H, C, N und O.
-#   HARTREE_KJ rechnet Hartree in kJ/mol um.
-#
-# Eine Gesamtenergie allein sagt nichts. Interessant sind immer
-# Unterschiede. Die rechnen wir in kJ/mol um, dann gilt derselbe
-# Maßstab wie in Block 1: Die Zimmerwärme liefert 2.4 kJ/mol.
+        '''#   qm_energie(atome, spin=0)  ->  Energie eines Moleküls
+#   atome: Liste aus (Element, (x, y, z)) in Ångström, Elemente H, C, N, O
+#   Einzelwerte sagen nichts, nur Unterschiede. Mal HARTREE_KJ gibt kJ/mol.
 
-# Beispiel 1: den Kernabstand im Kohlenmonoxid suchen
+# Kernabstand im Kohlenmonoxid suchen
 abstaende = [0.9, 1.0, 1.1, 1.13, 1.2, 1.3]
 energien = [qm_energie([("C", (0, 0, 0)), ("O", (0, 0, a))])
             for a in abstaende]
@@ -777,9 +770,7 @@ print()
 print(f"Tiefster Punkt bei {abstaende[energien.index(tiefste)]} Ångström.")
 print("Gemessen im Kohlenmonoxid: 1.128 Ångström.")
 
-# Beispiel 2: Wasser bauen und eine Bindung dehnen. Sauerstoff in den
-# Ursprung, die beiden Wasserstoffe 0.958 Ångström entfernt, im Winkel
-# von 104.5 Grad. Beim zweiten Molekül steht ein H eineinhalbmal so weit.
+# Wasser, und dasselbe mit einer um die Hälfte gedehnten O-H-Bindung
 wasser = [("O", (0.0000, 0.0, 0.0000)),
           ("H", (0.7578, 0.0, 0.5867)),
           ("H", (-0.7578, 0.0, 0.5867))]
@@ -787,22 +778,17 @@ gedehnt = [("O", (0.0000, 0.0, 0.0000)),
            ("H", (1.1367, 0.0, 0.8801)),
            ("H", (-0.7578, 0.0, 0.5867))]
 
-kosten = (qm_energie(gedehnt) - qm_energie(wasser)) * HARTREE_KJ
 print()
-print(f"Eine O-H-Bindung um die Hälfte dehnen kostet {kosten:.0f} kJ/mol.")
+print(f"Das Dehnen kostet "
+      f"{(qm_energie(gedehnt) - qm_energie(wasser)) * HARTREE_KJ:.0f} kJ/mol.")
 
-# Zum Weiterspielen: Es gibt H, C, N und O. Bau daraus, was du willst,
-# schieb Atome weiter weg oder ändere Winkel.
-#
-# Gemessene Kernabstände zum Vergleichen, in Ångström:
-#   H2 0.741    N2 1.098    CO 1.128    O-H im Wasser 0.958
-# Diese Werte gelten je nur für ihr eigenes Molekül.
-# Sauerstoff O2 braucht spin=2, sonst rechnet das Verfahren am
-# Grundzustand vorbei. Gemessen sind dort 1.208 Ångström.
+# Gemessene Kernabstände in Ångström:
+#   H2 0.741   N2 1.098   CO 1.128   O-H im Wasser 0.958
+# O2 braucht spin=2, gemessen 1.208.
 ''',
         hinweis="Ändere Elemente, Positionen und Abstände. Kaputtmachen "
                 "kannst du nichts, *Zurücksetzen* holt das Original zurück.",
-        hoehe=520,
+        hoehe=440,
         extras={
             "qm_energie": lambda atome, spin=0: hf_pure.energie(
                 list(atome), spin=spin),
