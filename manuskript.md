@@ -9,7 +9,7 @@ Arbeitskreis Pro Scientia · Constantin Richard Feitl & Dato Tsomaia
 
 Dieses Manuskript deckt den ganzen Nachmittag ab, nicht nur die App. Die App
 ist der Teil, den die Teilnehmenden auf ihren eigenen Geräten mitmachen. Der
-Molekülbaukasten, der Geigerzähler und die Diskussion passieren im Raum.
+Geigerzähler und die Diskussion passieren im Raum.
 
 Der Text unter **Zum Sagen** ist als Sprechvorlage gedacht, nicht zum
 Vorlesen. Jeder Punkt ist ein Gedanke. Wenn ihr einen Punkt weglasst, bricht
@@ -33,10 +33,9 @@ Drei Grundregeln für die Moderation:
 | Zeit | Was | Wo |
 |---|---|---|
 | 10 min | Einleitung | Vortrag |
-| 15 min | Molekülbaukasten | am Tisch |
-| 25 min | App, Block 1, Kapitel 1 bis 3 | eigene Geräte |
+| 30 min | App, Block 1, Kapitel 1 bis 3 | eigene Geräte |
 | 15 min | App, Block 1, Kapitel 4: Haber und Bosch | eigene Geräte |
-| 25 min | Diskussion: Verantwortung und Propaganda | Runde |
+| 35 min | Diskussion: Verantwortung und Propaganda | Runde |
 | 20 min | Pause | |
 | 20 min | Radioaktivität mit dem Geigerzähler | am Tisch |
 | 30 min | App, Block 2, Kapitel 1 bis 4 | eigene Geräte |
@@ -44,8 +43,8 @@ Drei Grundregeln für die Moderation:
 | 10 min | Abschluss | Runde |
 
 **Vorher erledigen:** Den Streamlit-Link einmal selbst aufrufen, damit die App
-wach ist. Den Link als QR-Code an die Wand werfen. Baukasten und Geigerzähler
-auf dem Tisch bereitlegen.
+wach ist. Den Link als QR-Code an die Wand werfen. Den Geigerzähler auf dem
+Tisch bereitlegen.
 
 ---
 
@@ -68,38 +67,14 @@ auf dem Tisch bereitlegen.
 * Ihr braucht kein Vorwissen. Keine Formeln, kein Chemieunterricht, keine
   Programmierkenntnisse. Wir haben alles, was Fachwissen wäre, in
   ausklappbare Kästen geräumt.
-* Es gibt drei Dinge zum Anfassen: einen Molekülbaukasten, einen Geigerzähler
-  und eine App, die auf euren Handys läuft. Bitte macht mit, statt zuzusehen.
+* Es gibt zwei Dinge zum Anfassen: einen Geigerzähler und eine App, die auf
+  euren Handys läuft. Bitte macht mit, statt zuzusehen.
 
 **Danach:** QR-Code zeigen, alle den Link öffnen lassen, kurz warten.
 
 ---
 
-## 1 · Molekülbaukasten
-
-**Was passiert:** Kleingruppen von zwei bis drei Personen. Jede Gruppe baut
-N₂, H₂ und NH₃ und legt die Reaktionsgleichung als Objekte auf den Tisch.
-
-**Zum Sagen**
-
-* Das hier ist Stickstoff, wie er in der Luft vorkommt. Zwei Atome, drei
-  Stäbchen dazwischen. Diese drei Stäbchen sind der ganze Nachmittag.
-* Das ist Wasserstoff. Ein Stäbchen.
-* Und das ist Ammoniak, das Produkt. Ein Stickstoff, drei Wasserstoffe.
-* Legt euch die Gleichung auf den Tisch: ein N₂, drei H₂ auf der linken
-  Seite, zwei NH₃ auf der rechten. Zählt nach, ob die Atome aufgehen.
-* Was ihr gerade gemacht habt, hat ein bisschen mehr als eine Minute
-  gedauert. In der Wirklichkeit hat es über hundert Jahre gedauert, und der
-  Grund liegt in diesen drei Stäbchen.
-
-**Frage in die Runde**, bevor ihr weitergeht: Wie viel Kraft, glaubt ihr,
-braucht man, um diese drei Stäbchen aufzubrechen, verglichen mit dem einen
-Stäbchen im Wasserstoff? Sammelt drei Antworten. Genau diese Frage kommt
-gleich in der App wieder.
-
----
-
-## 2 · App, Block 1, Kapitel 1 bis 3
+## 1 · App, Block 1, Kapitel 1 bis 3
 
 ### Kapitel 1 · Ein Meer aus Stickstoff
 
@@ -126,8 +101,8 @@ Das ist das wichtigste Kapitel des Blocks. Nehmt euch Zeit.
 
 **Zum Sagen**
 
-* Jetzt die Ratefrage vom Baukasten, diesmal mit Zahlen. Stellt den Regler
-  ein, bevor ihr auf Auflösen drückt.
+* Jetzt eine Ratefrage. Stellt den Regler ein, bevor ihr auf Auflösen drückt,
+  und sammelt vorher drei Tipps laut aus der Runde.
 * *Nach dem Auflösen:* Der Faktor ist 2,2, nicht 3. Die meisten tippen höher.
   Der Punkt ist: Der Unterschied zwischen den Bindungen ist gar nicht das
   Interessante.
@@ -179,7 +154,7 @@ Das ist das wichtigste Kapitel des Blocks. Nehmt euch Zeit.
 
 ---
 
-## 3 · App, Block 1, Kapitel 4: Haber und Bosch
+## 2 · App, Block 1, Kapitel 4: Haber und Bosch
 
 Hier wird nichts mehr geklickt. Die Seite ist Text, ihr erzählt dazu.
 
@@ -240,7 +215,7 @@ sitzen wir hier nicht in einer Chemievorlesung.
 
 ---
 
-## 4 · Diskussion: Verantwortung und Propaganda
+## 3 · Diskussion: Verantwortung und Propaganda
 
 Zwanzig bis dreißig Minuten, offen. Die App enthält bewusst keine
 Diskussionsfragen, damit hier wirklich geredet und nicht gelesen wird.
@@ -278,7 +253,7 @@ zurück, was der Fall über die Struktur wissenschaftlicher Arbeit sagt.
 
 ---
 
-## 5 · Radioaktivität mit dem Geigerzähler
+## 4 · Radioaktivität mit dem Geigerzähler
 
 **Was passiert:** Der Geigerzähler läuft, alle hören mit. Erst der Untergrund,
 dann verschiedene Quellen, dann der Abstand.
@@ -316,7 +291,7 @@ Verbindung zur Wirklichkeit.
 
 ---
 
-## 6 · App, Block 2, Kapitel 1 bis 4
+## 5 · App, Block 2, Kapitel 1 bis 4
 
 ### Kapitel 1 · Warum es die Quantenmechanik gibt
 
@@ -414,7 +389,7 @@ Verbindung zur Wirklichkeit.
 
 ---
 
-## 7 · App, Block 2, Kapitel 5: selbst rechnen
+## 6 · App, Block 2, Kapitel 5: selbst rechnen
 
 Das ist der Teil, für den die Python-Skripte vorbereitet sind. Lasst hier
 wirklich jeden selbst auf den Knopf drücken.
@@ -493,7 +468,7 @@ Abstände. Kaputtmachen kann man nichts.
 
 ---
 
-## 8 · Abschluss
+## 7 · Abschluss
 
 **Zum Sagen**
 

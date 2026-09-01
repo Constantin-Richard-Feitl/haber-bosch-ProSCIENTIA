@@ -77,9 +77,7 @@ Fabrik. Die Reaktion, um die sich alles dreht, sieht harmlos aus:
              r"2\,\mathrm{NH_3}")
     st.markdown(
         "Links stehen zwei Gase, die es im Überfluss gibt. Rechts steht "
-        "Ammoniak, aus dem Dünger wird. **Bau die drei Moleküle mit dem "
-        "Baukasten auf dem Tisch nach.** Dann steht die Gleichung als Objekt "
-        "vor dir, bevor wir sie durchrechnen."
+        "Ammoniak, aus dem Dünger wird."
     )
 
     st.divider()

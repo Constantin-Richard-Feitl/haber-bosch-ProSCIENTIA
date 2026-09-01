@@ -16,8 +16,8 @@ Eine App, zwei Blöcke, ein Link. Kein Vorwissen nötig.
 | **Block 2 · Die Quantenwelt** | 5 | Teilchen im Kasten, von der Gitarrensaite über den QLED-Fernseher bis zur live gerechneten Quantenchemie |
 | **Nachschlagen** | | Fachwörter und Quellen |
 
-Die App ist nur ein Teil des Nachmittags. Molekülbaukasten, Geigerzähler und
-die Diskussion passieren im Raum. Wie alles zusammenspielt und was man wo dazu
+Die App ist nur ein Teil des Nachmittags. Der Geigerzähler und die Diskussion
+passieren im Raum. Wie alles zusammenspielt und was man wo dazu
 sagt, steht in **[manuskript.md](manuskript.md)**.
 
 Deshalb enthält die App selbst keine Diskussionsfragen. Sie erklärt, die Runde
