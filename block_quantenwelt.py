@@ -770,25 +770,18 @@ print()
 print(f"Tiefster Punkt bei {abstaende[energien.index(tiefste)]} Ångström.")
 print("Gemessen im Kohlenmonoxid: 1.128 Ångström.")
 
-# Wasser, und dasselbe mit einer um die Hälfte gedehnten O-H-Bindung
-wasser = [("O", (0.0000, 0.0, 0.0000)),
-          ("H", (0.7578, 0.0, 0.5867)),
-          ("H", (-0.7578, 0.0, 0.5867))]
-gedehnt = [("O", (0.0000, 0.0, 0.0000)),
-           ("H", (1.1367, 0.0, 0.8801)),
-           ("H", (-0.7578, 0.0, 0.5867))]
-
-print()
-print(f"Das Dehnen kostet "
-      f"{(qm_energie(gedehnt) - qm_energie(wasser)) * HARTREE_KJ:.0f} kJ/mol.")
-
+# Mehratomige Moleküle gehen genauso, zum Beispiel Wasser:
+#   [("O", (0.0000, 0.0, 0.0000)),
+#    ("H", (0.7578, 0.0, 0.5867)),
+#    ("H", (-0.7578, 0.0, 0.5867))]
+#
 # Gemessene Kernabstände in Ångström:
 #   H2 0.741   N2 1.098   CO 1.128   O-H im Wasser 0.958
 # O2 braucht spin=2, gemessen 1.208.
 ''',
         hinweis="Ändere Elemente, Positionen und Abstände. Kaputtmachen "
                 "kannst du nichts, *Zurücksetzen* holt das Original zurück.",
-        hoehe=440,
+        hoehe=400,
         extras={
             "qm_energie": lambda atome, spin=0: hf_pure.energie(
                 list(atome), spin=spin),
@@ -812,7 +805,9 @@ Gaußfunktionen pro Atomorbital. Größere Sätze wie 6-31G* oder cc-pVTZ kämen
 näher heran, kosten aber ein Vielfaches an Rechenzeit.
 
 **Was fehlt.** Die Elektronenkorrelation. Der dabei verlorene Energiebeitrag
-ist bei Mehrfachbindungen groß.
+ist bei Mehrfachbindungen groß. Aus demselben Grund wird auch eine stark
+gedehnte Bindung zu teuer gerechnet. In der Nähe des Gleichgewichts stimmt
+das Verfahren dagegen auf wenige Prozent.
 
 **Was verglichen wird.** Die Rechnung liefert die Tiefe *D*<sub>e</sub> des
 Energietals bei festgehaltenen Kernen. Der geläufige Tabellenwert einer

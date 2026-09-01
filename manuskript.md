@@ -465,10 +465,10 @@ wirklich jeden selbst auf den Knopf drücken.
 
 **Codefeld:** Wer will, kann jetzt selbst Moleküle bauen. Ändert Elemente und
 Abstände. Kaputtmachen kann man nichts, *Zurücksetzen* holt das Original
-zurück. Im Feld stehen zwei fertige Beispiele: der Kernabstand im Kohlenmonoxid und
-ein Wassermolekül, bei dem eine Bindung gedehnt wird. Beide rechnen in
-kJ/mol, also im selben Maßstab wie Block 1. Zur Verfügung stehen die
-Elemente H, C, N und O, daraus lässt sich bauen, was die Runde will.
+zurück. Im Feld steht ein fertiges Beispiel: der Kernabstand im Kohlenmonoxid,
+gerechnet in kJ/mol, also im selben Maßstab wie Block 1. Zur Verfügung
+stehen die Elemente H, C, N und O, daraus lässt sich bauen, was die Runde
+will. Wie ein mehratomiges Molekül aussieht, steht als Kommentar im Feld.
 
 ---
 
