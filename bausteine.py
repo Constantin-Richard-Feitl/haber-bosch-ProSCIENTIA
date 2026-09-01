@@ -11,6 +11,7 @@ ausklappbaren Kästen für die, die sie sehen wollen.
 import io
 import os
 import math
+import hashlib
 import contextlib
 import traceback
 
@@ -329,7 +330,12 @@ def code_feld(key, code, hinweis=None, hoehe=320, extras=None,
     # der gesetzt ist, ignoriert Streamlit ein übergebenes value. Deshalb
     # wird beim Zurücksetzen dieser Schlüssel selbst überschrieben, und zwar
     # vor dem Erzeugen des Widgets. Nachher wäre es ein Fehler.
-    feld = f"area_{key}"
+    #
+    # Im Schlüssel steckt zusätzlich eine Prüfsumme der Vorlage. Ändert sich
+    # die Vorlage im Quelltext, entsteht ein neuer Schlüssel und die laufende
+    # Sitzung zeigt sofort die neue Fassung, statt an der alten zu kleben.
+    kennung = hashlib.md5(code.encode("utf-8")).hexdigest()[:8]
+    feld = f"area_{key}_{kennung}"
     if st.session_state.pop(f"neuladen_{key}", False) or feld not in st.session_state:
         st.session_state[feld] = code
 
